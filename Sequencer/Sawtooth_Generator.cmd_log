@@ -1,0 +1,1 @@
+vhdtdtfi -prj Sequencer -o /home/matt/Programming/VHDL/sequencer/Sequencer/Sawtooth_Generator.vhi -module Sawtooth_Generator -template /opt/Xilinx/13.1/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work Sawtooth_Generator.vhd 

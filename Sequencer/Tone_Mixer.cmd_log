@@ -1,0 +1,1 @@
+vhdtdtfi -prj Sequencer -o /home/matt/Programming/VHDL/sequencer/Sequencer/Tone_Mixer.vhi -module Tone_Mixer -template /opt/Xilinx/13.1/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work Tone_Mixer.vhd 

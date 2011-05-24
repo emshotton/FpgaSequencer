@@ -1,0 +1,2 @@
+vhdl isim_temp "Sawtooth_Generator.vhd"
+vhdl isim_temp "Sawtooth_Generator_tb.vhd"

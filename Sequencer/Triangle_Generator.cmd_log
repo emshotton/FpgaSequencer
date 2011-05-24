@@ -1,0 +1,1 @@
+vhdtdtfi -prj Sequencer -o /home/matt/Programming/VHDL/sequencer/Sequencer/Triangle_Generator.vhi -module Triangle_Generator -template /opt/Xilinx/13.1/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work Triangle_Ram.vhd -lib work Triangle_Generator.vhd 

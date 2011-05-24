@@ -1,0 +1,278 @@
+--------------------------------------------------------------------------------
+Release 13.1 Trace  (lin64)
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+
+/opt/Xilinx/13.1/ISE_DS/ISE/bin/lin64/unwrapped/trce -intstyle ise -v 3 -s 5 -n
+3 -fastpaths -xml Top_Level.twx Top_Level.ncd -o Top_Level.twr Top_Level.pcf
+-ucf BPC3003_2.03+.ucf
+
+Design file:              Top_Level.ncd
+Physical constraint file: Top_Level.pcf
+Device,package,speed:     xc3s250e,vq100,-5 (PRODUCTION 1.27 2011-02-03)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+INFO:Timing:3390 - This architecture does not support a default System Jitter 
+   value, please add SYSTEM_JITTER constraint to the UCF to modify the Clock 
+   Uncertainty calculation.
+INFO:Timing:3389 - This architecture does not support 'Discrete Jitter' and 
+   'Phase Error' calculations, these terms will be zero in the Clock 
+   Uncertainty calculation.  Please make appropriate modification to 
+   SYSTEM_JITTER to account for the unsupported Discrete Jitter and Phase 
+   Error.
+
+================================================================================
+Timing constraint: NET "clk_BUFGP/IBUFG" PERIOD = 31.25 ns HIGH 50%;
+
+ 376 paths analyzed, 169 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is   5.249ns.
+--------------------------------------------------------------------------------
+
+Paths for end point Inst_Tone_Mixer/MULT18X18S_inst (MULT18X18_X0Y3.A3), 1 path
+--------------------------------------------------------------------------------
+Slack (setup path):     26.001ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               Inst_Tone_Mixer/MULT_A_3 (FF)
+  Destination:          Inst_Tone_Mixer/MULT18X18S_inst (MULT)
+  Requirement:          31.250ns
+  Data Path Delay:      5.249ns (Levels of Logic = 0)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 31.250ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: Inst_Tone_Mixer/MULT_A_3 to Inst_Tone_Mixer/MULT18X18S_inst
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X13Y33.YQ      Tcko                  0.511   Inst_Tone_Mixer/MULT_A<2>
+                                                       Inst_Tone_Mixer/MULT_A_3
+    MULT18X18_X0Y3.A3    net (fanout=1)        1.200   Inst_Tone_Mixer/MULT_A<3>
+    MULT18X18_X0Y3.CLK   Tmsdck_P              3.538   Inst_Tone_Mixer/MULT18X18S_inst
+                                                       Inst_Tone_Mixer/MULT18X18S_inst
+    -------------------------------------------------  ---------------------------
+    Total                                      5.249ns (4.049ns logic, 1.200ns route)
+                                                       (77.1% logic, 22.9% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point Inst_Tone_Mixer/MULT18X18S_inst (MULT18X18_X0Y3.A1), 1 path
+--------------------------------------------------------------------------------
+Slack (setup path):     26.219ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               Inst_Tone_Mixer/MULT_A_1 (FF)
+  Destination:          Inst_Tone_Mixer/MULT18X18S_inst (MULT)
+  Requirement:          31.250ns
+  Data Path Delay:      5.031ns (Levels of Logic = 0)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 31.250ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: Inst_Tone_Mixer/MULT_A_1 to Inst_Tone_Mixer/MULT18X18S_inst
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X13Y32.YQ      Tcko                  0.511   Inst_Tone_Mixer/MULT_A<0>
+                                                       Inst_Tone_Mixer/MULT_A_1
+    MULT18X18_X0Y3.A1    net (fanout=1)        0.982   Inst_Tone_Mixer/MULT_A<1>
+    MULT18X18_X0Y3.CLK   Tmsdck_P              3.538   Inst_Tone_Mixer/MULT18X18S_inst
+                                                       Inst_Tone_Mixer/MULT18X18S_inst
+    -------------------------------------------------  ---------------------------
+    Total                                      5.031ns (4.049ns logic, 0.982ns route)
+                                                       (80.5% logic, 19.5% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point Inst_Tone_Mixer/MULT18X18S_inst (MULT18X18_X0Y3.A0), 1 path
+--------------------------------------------------------------------------------
+Slack (setup path):     26.451ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               Inst_Tone_Mixer/MULT_A_0 (FF)
+  Destination:          Inst_Tone_Mixer/MULT18X18S_inst (MULT)
+  Requirement:          31.250ns
+  Data Path Delay:      4.799ns (Levels of Logic = 0)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 31.250ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: Inst_Tone_Mixer/MULT_A_0 to Inst_Tone_Mixer/MULT18X18S_inst
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X13Y32.XQ      Tcko                  0.514   Inst_Tone_Mixer/MULT_A<0>
+                                                       Inst_Tone_Mixer/MULT_A_0
+    MULT18X18_X0Y3.A0    net (fanout=1)        0.747   Inst_Tone_Mixer/MULT_A<0>
+    MULT18X18_X0Y3.CLK   Tmsdck_P              3.538   Inst_Tone_Mixer/MULT18X18S_inst
+                                                       Inst_Tone_Mixer/MULT18X18S_inst
+    -------------------------------------------------  ---------------------------
+    Total                                      4.799ns (4.052ns logic, 0.747ns route)
+                                                       (84.4% logic, 15.6% route)
+
+--------------------------------------------------------------------------------
+
+Hold Paths: NET "clk_BUFGP/IBUFG" PERIOD = 31.25 ns HIGH 50%;
+--------------------------------------------------------------------------------
+
+Paths for end point Inst_Sine_Generator/Inst_sine_ram/Mrom__varindex0000.A (RAMB16_X0Y3.ADDRA3), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.938ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               Inst_Sawtooth_Generator/COUNTER_0 (FF)
+  Destination:          Inst_Sine_Generator/Inst_sine_ram/Mrom__varindex0000.A (RAM)
+  Requirement:          0.000ns
+  Data Path Delay:      0.937ns (Levels of Logic = 0)
+  Clock Path Skew:      -0.001ns (0.057 - 0.058)
+  Source Clock:         clk_BUFGP rising at 31.250ns
+  Destination Clock:    clk_BUFGP rising at 31.250ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: Inst_Sawtooth_Generator/COUNTER_0 to Inst_Sine_Generator/Inst_sine_ram/Mrom__varindex0000.A
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X3Y29.XQ       Tcko                  0.411   Inst_Sawtooth_Generator/COUNTER<0>
+                                                       Inst_Sawtooth_Generator/COUNTER_0
+    RAMB16_X0Y3.ADDRA3   net (fanout=2)        0.640   Inst_Sawtooth_Generator/COUNTER<0>
+    RAMB16_X0Y3.CLKA     Tbcka       (-Th)     0.114   Inst_Sine_Generator/Inst_sine_ram/Mrom__varindex0000
+                                                       Inst_Sine_Generator/Inst_sine_ram/Mrom__varindex0000.A
+    -------------------------------------------------  ---------------------------
+    Total                                      0.937ns (0.297ns logic, 0.640ns route)
+                                                       (31.7% logic, 68.3% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point Inst_Triangle_Generator/POSITION_COUNTER_7 (SLICE_X14Y37.CE), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      1.027ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               Inst_Clock_Divider/OUTPUT (FF)
+  Destination:          Inst_Triangle_Generator/POSITION_COUNTER_7 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      1.015ns (Levels of Logic = 0)
+  Clock Path Skew:      -0.012ns (0.013 - 0.025)
+  Source Clock:         clk_BUFGP rising at 31.250ns
+  Destination Clock:    clk_BUFGP rising at 31.250ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: Inst_Clock_Divider/OUTPUT to Inst_Triangle_Generator/POSITION_COUNTER_7
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X20Y38.YQ      Tcko                  0.454   Inst_Clock_Divider/OUTPUT
+                                                       Inst_Clock_Divider/OUTPUT
+    SLICE_X14Y37.CE      net (fanout=9)        0.490   Inst_Clock_Divider/OUTPUT
+    SLICE_X14Y37.CLK     Tckce       (-Th)    -0.071   Inst_Triangle_Generator/POSITION_COUNTER<7>
+                                                       Inst_Triangle_Generator/POSITION_COUNTER_7
+    -------------------------------------------------  ---------------------------
+    Total                                      1.015ns (0.525ns logic, 0.490ns route)
+                                                       (51.7% logic, 48.3% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point Inst_Triangle_Generator/POSITION_COUNTER_6 (SLICE_X14Y36.CE), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      1.027ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               Inst_Clock_Divider/OUTPUT (FF)
+  Destination:          Inst_Triangle_Generator/POSITION_COUNTER_6 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      1.015ns (Levels of Logic = 0)
+  Clock Path Skew:      -0.012ns (0.013 - 0.025)
+  Source Clock:         clk_BUFGP rising at 31.250ns
+  Destination Clock:    clk_BUFGP rising at 31.250ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: Inst_Clock_Divider/OUTPUT to Inst_Triangle_Generator/POSITION_COUNTER_6
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X20Y38.YQ      Tcko                  0.454   Inst_Clock_Divider/OUTPUT
+                                                       Inst_Clock_Divider/OUTPUT
+    SLICE_X14Y36.CE      net (fanout=9)        0.490   Inst_Clock_Divider/OUTPUT
+    SLICE_X14Y36.CLK     Tckce       (-Th)    -0.071   Inst_Triangle_Generator/POSITION_COUNTER<6>
+                                                       Inst_Triangle_Generator/POSITION_COUNTER_6
+    -------------------------------------------------  ---------------------------
+    Total                                      1.015ns (0.525ns logic, 0.490ns route)
+                                                       (51.7% logic, 48.3% route)
+
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: NET "clk_BUFGP/IBUFG" PERIOD = 31.25 ns HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 27.546ns (period - (min low pulse limit / (low pulse / period)))
+  Period: 31.250ns
+  Low pulse: 15.625ns
+  Low pulse limit: 1.852ns (Tmspwl_P)
+  Physical resource: Inst_Tone_Mixer/MULT18X18S_inst/CLK
+  Logical resource: Inst_Tone_Mixer/MULT18X18S_inst/CLK
+  Location pin: MULT18X18_X0Y3.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 27.546ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 31.250ns
+  High pulse: 15.625ns
+  High pulse limit: 1.852ns (Tmspwh_P)
+  Physical resource: Inst_Tone_Mixer/MULT18X18S_inst/CLK
+  Logical resource: Inst_Tone_Mixer/MULT18X18S_inst/CLK
+  Location pin: MULT18X18_X0Y3.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 27.546ns (period - min period limit)
+  Period: 31.250ns
+  Min period limit: 3.704ns (269.978MHz) (Tmsper_P)
+  Physical resource: Inst_Tone_Mixer/MULT18X18S_inst/CLK
+  Logical resource: Inst_Tone_Mixer/MULT18X18S_inst/CLK
+  Location pin: MULT18X18_X0Y3.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+
+
+All constraints were met.
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    5.249|         |         |         |
+---------------+---------+---------+---------+---------+
+
+
+Timing summary:
+---------------
+
+Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
+
+Constraints cover 376 paths, 0 nets, and 184 connections
+
+Design statistics:
+   Minimum period:   5.249ns{1}   (Maximum frequency: 190.512MHz)
+
+
+------------------------------------Footnotes-----------------------------------
+1)  The minimum period statistic assumes all single cycle delays.
+
+Analysis completed Mon May 23 22:22:22 2011 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 237 MB
+
+
+

@@ -1,0 +1,2 @@
+vhdl isim_temp "Square_Generator.vhd"
+vhdl isim_temp "Square_Generator_tb.vhd"

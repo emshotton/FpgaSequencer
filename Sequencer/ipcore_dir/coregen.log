@@ -1,0 +1,26 @@
+CoreGen has not been configured with any user repositories.
+CoreGen has been configured with the following Xilinx repositories:
+ - '/opt/Xilinx/13.1/ISE_DS/ISE/coregen/' []
+INFO:sim:927 - Generating component instance 'dcm' of
+   'xilinx.com:ip:dcm_sp:13.1' from
+   '/opt/Xilinx/13.1/ISE_DS/ISE/bin/lin64/arwz'.
+Customizing IP...
+Generated Architecture Wizard:
+/home/matt/Documents/FPGA/Sequencer/ipcore_dir/./dcm.xaw
+Architecture Wizard completed successfully.
+Finished Customizing.
+Resolving generic values...
+Finished resolving generic values.
+Generating ASY schematic symbol...
+WARNING:sim:948 - The chosen IP does not support an ASY schematic symbol.
+Finished generating ASY schematic symbol.
+Executing Tcl generator...
+WARNING:sim - The chosen IP does not support an SYM schematic symbol.
+Finished executing Tcl generator.
+Generating FLIST file...
+Finished FLIST file generation.
+Preparing output directory...
+Finished preparing output directory.
+Moving files to output directory...
+Finished moving files to output directory
+Wrote file for project '/home/matt/Documents/FPGA/Sequencer/ipcore_dir/dcm.cgp'.

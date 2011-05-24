@@ -1,0 +1,2 @@
+vhdl isim_temp "Tone_Mixer.vhd"
+vhdl isim_temp "Tone_Mixer_tb.vhd"

@@ -1,0 +1,2 @@
+vhdl isim_temp "Sine_Ram.vhd"
+vhdl isim_temp "Sine_Generator.vhd"

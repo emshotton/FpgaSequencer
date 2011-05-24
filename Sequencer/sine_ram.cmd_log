@@ -1,0 +1,1 @@
+vhdtdtfi -prj Sequencer -o /home/matt/Dropbox/Code/xilinx/sequencer/Sequencer/sine_ram.vhi -module sine_ram -template /opt/Xilinx/13.1/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work Sine_Ram.vhd 

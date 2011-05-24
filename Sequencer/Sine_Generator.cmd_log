@@ -1,0 +1,3 @@
+xst -intstyle ise -ifn "/home/matt/Documents/FPGA/Sequencer/Sine_Generator.xst" -ofn "/home/matt/Documents/FPGA/Sequencer/Sine_Generator.syr" 
+vhdtdtfi -prj Sequencer -o /home/matt/Dropbox/Code/xilinx/sequencer/Sequencer/Sine_Generator.vhi -module Sine_Generator -template /opt/Xilinx/13.1/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work Sine_Generator.vhd 
+vhdtdtfi -prj Sequencer -o /home/matt/Programming/VHDL/sequencer/Sequencer/Sine_Generator.vhi -module Sine_Generator -template /opt/Xilinx/13.1/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work Sine_Ram.vhd -lib work Sine_Generator.vhd 
