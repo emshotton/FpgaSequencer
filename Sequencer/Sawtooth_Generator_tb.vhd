@@ -42,6 +42,7 @@ ARCHITECTURE behavior OF Sawtooth_Generator_tb IS
     COMPONENT Sawtooth_Generator
     PORT(
          HARMONIC : IN  std_logic_vector(3 downto 0);
+			PHASE : in STD_LOGIC_VECTOR (7 downto 0);
          CLOCK : IN  std_logic;
          CLOCK_ENABLE : IN  std_logic;
          RESET : IN  std_logic;
@@ -58,7 +59,8 @@ ARCHITECTURE behavior OF Sawtooth_Generator_tb IS
 
  	--Outputs
    signal OUTPUT : std_logic_vector(7 downto 0);
-
+	signal PHASE : STD_LOGIC_VECTOR (7 downto 0);
+	
    -- Clock period definitions
    constant CLOCK_period : time := 10 ns;
  
@@ -67,6 +69,7 @@ BEGIN
 	-- Instantiate the Unit Under Test (UUT)
    uut: Sawtooth_Generator PORT MAP (
           HARMONIC => HARMONIC,
+			 PHASE => PHASE,
           CLOCK => CLOCK,
           CLOCK_ENABLE => CLOCK_ENABLE,
           RESET => RESET,
@@ -94,7 +97,7 @@ BEGIN
 		-- insert stimulus here 
 		CLOCK_ENABLE <= '1';
 		HARMONIC <= "0001";
-      
+      PHASE <= "00000000";
 
       wait;
    end process;

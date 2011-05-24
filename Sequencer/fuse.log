@@ -1,20 +1,27 @@
-Running: /opt/Xilinx/13.1/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -o /home/matt/Programming/VHDL/sequencer/Sequencer/Sawtooth_Generator_tb_isim_beh.exe -prj /home/matt/Programming/VHDL/sequencer/Sequencer/Sawtooth_Generator_tb_beh.prj work.Sawtooth_Generator_tb 
+Running: /opt/Xilinx/13.1/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -o /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Sine_Generator_tb_isim_beh.exe -prj /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Sine_Generator_tb_beh.prj work.Sine_Generator_tb 
 ISim O.40d (signature 0xdc0cde0)
 Number of CPUs detected in this system: 2
 Turning on mult-threading, number of parallel sub-compilation jobs: 4 
 Determining compilation order of HDL files
-Parsing VHDL file "/home/matt/Programming/VHDL/sequencer/Sequencer/Sawtooth_Generator.vhd" into library work
-Parsing VHDL file "/home/matt/Programming/VHDL/sequencer/Sequencer/Sawtooth_Generator_tb.vhd" into library work
+Parsing VHDL file "/home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Sine_Ram.vhd" into library work
+Parsing VHDL file "/home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Sine_Generator.vhd" into library work
+Parsing VHDL file "/home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Sine_Generator_tb.vhd" into library work
 Starting static elaboration
 Completed static elaboration
-Fuse Memory Usage: 73080 KB
-Fuse CPU Usage: 220 ms
+Fuse Memory Usage: 75292 KB
+Fuse CPU Usage: 150 ms
 Using precompiled package standard from library std
 Using precompiled package std_logic_1164 from library ieee
 Using precompiled package numeric_std from library ieee
-Compiling architecture behavioral of entity sawtooth_generator [sawtooth_generator_default]
-Compiling architecture behavior of entity sawtooth_generator_tb
+Using precompiled package std_logic_arith from library ieee
+Using precompiled package std_logic_unsigned from library ieee
+Compiling architecture behavioral of entity sine_ram [sine_ram_default]
+Compiling architecture behavioral of entity sine_generator [sine_generator_default]
+Compiling architecture behavior of entity sine_generator_tb
 Time Resolution for simulation is 1ps.
-FATAL_ERROR:Simulator:Fuse.cpp:209:1.128.12.1 - Failed to compile one of the generated C files.
-
-   Please recompile with -mt off -v 1 switch to identify which design unit failed.  Process will terminate. For technical support on this issue, please open a WebCase with this project attached at http://www.xilinx.com/support.
+Waiting for 2 sub-compilation(s) to finish...
+Compiled 10 VHDL Units
+Built simulation executable /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Sine_Generator_tb_isim_beh.exe
+Fuse Memory Usage: 113236 KB
+Fuse CPU Usage: 160 ms
+GCC CPU Usage: 400 ms

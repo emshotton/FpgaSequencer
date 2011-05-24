@@ -42,6 +42,7 @@ ARCHITECTURE behavior OF Sine_Generator_tb IS
     COMPONENT Sine_Generator
     PORT(
          HARMONIC : IN  std_logic_vector(3 downto 0);
+			PHASE : IN std_logic_vector(7 downto 0);
          CLOCK : IN  std_logic;
          CLOCK_ENABLE : IN  std_logic;
          RESET : IN  std_logic;
@@ -55,7 +56,7 @@ ARCHITECTURE behavior OF Sine_Generator_tb IS
    signal CLOCK : std_logic := '0';
    signal CLOCK_ENABLE : std_logic := '0';
    signal RESET : std_logic := '0';
-
+	signal PHASE : std_logic_vector(7 downto 0) := (others => '0');
  	--Outputs
    signal OUTPUT : std_logic_vector(7 downto 0);
 
@@ -67,6 +68,7 @@ BEGIN
 	-- Instantiate the Unit Under Test (UUT)
    uut: Sine_Generator PORT MAP (
           HARMONIC => HARMONIC,
+			 PHASE => PHASE,
           CLOCK => CLOCK,
           CLOCK_ENABLE => CLOCK_ENABLE,
           RESET => RESET,
@@ -91,11 +93,15 @@ BEGIN
 		RESET <='1';
       wait for 100 ns;	
 		RESET <='0';
+		HARMONIC <= "0001";
+		CLOCK_ENABLE<='1';
 		
       wait for CLOCK_period*10;
-		HARMONIC <= "1111";
-		CLOCK_ENABLE<='1';
+
       -- insert stimulus here 
+
+		wait for 100 ns;
+		PHASE<=x"00";
 
       wait;
    end process;

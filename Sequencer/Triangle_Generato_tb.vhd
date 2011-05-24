@@ -42,6 +42,7 @@ ARCHITECTURE behavior OF Triangle_Generato_tb IS
     COMPONENT Triangle_Generator
     PORT(
          HARMONIC : IN  std_logic_vector(3 downto 0);
+			PHASE : IN STD_LOGIC_VECTOR (7 downto 0);
          CLOCK : IN  std_logic;
          CLOCK_ENABLE : IN  std_logic;
          RESET : IN  std_logic;
@@ -52,6 +53,7 @@ ARCHITECTURE behavior OF Triangle_Generato_tb IS
 
    --Inputs
    signal HARMONIC : std_logic_vector(3 downto 0) := (others => '0');
+	signal PHASE : STD_LOGIC_VECTOR (7 downto 0);
    signal CLOCK : std_logic := '0';
    signal CLOCK_ENABLE : std_logic := '0';
    signal RESET : std_logic := '0';
@@ -67,6 +69,7 @@ BEGIN
 	-- Instantiate the Unit Under Test (UUT)
    uut: Triangle_Generator PORT MAP (
           HARMONIC => HARMONIC,
+			 PHASE => PHASE,
           CLOCK => CLOCK,
           CLOCK_ENABLE => CLOCK_ENABLE,
           RESET => RESET,
@@ -96,7 +99,7 @@ BEGIN
       -- insert stimulus here 
 		HARMONIC <= "0010";
 		CLOCK_ENABLE <='1';
-		
+		PHASE <= x"00";
 		
       wait;
    end process;
