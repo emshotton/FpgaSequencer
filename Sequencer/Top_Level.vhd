@@ -59,6 +59,7 @@ architecture Behavioral of Top_Level is
 	COMPONENT Sine_Generator
 	PORT(
 		HARMONIC : IN std_logic_vector(3 downto 0);
+		PHASE : IN std_logic_vector(7 downto 0);
 		CLOCK : IN std_logic;
 		CLOCK_ENABLE : IN std_logic;
 		RESET : IN std_logic;          
@@ -69,6 +70,7 @@ architecture Behavioral of Top_Level is
 	COMPONENT Square_Generator
 	PORT(
 		HARMONIC : IN std_logic_vector(3 downto 0);
+		PHASE : IN std_logic_vector(7 downto 0);
 		CLOCK : IN std_logic;
 		CLOCK_ENABLE : IN std_logic;
 		RESET : IN std_logic;          
@@ -79,6 +81,7 @@ architecture Behavioral of Top_Level is
 	COMPONENT Sawtooth_Generator
 	PORT(
 		HARMONIC : IN std_logic_vector(3 downto 0);
+		PHASE : IN std_logic_vector(7 downto 0);
 		CLOCK : IN std_logic;
 		CLOCK_ENABLE : IN std_logic;
 		RESET : IN std_logic;          
@@ -89,6 +92,7 @@ architecture Behavioral of Top_Level is
 	COMPONENT Triangle_Generator
 	PORT(
 		HARMONIC : IN std_logic_vector(3 downto 0);
+		PHASE : IN std_logic_vector(7 downto 0);
 		CLOCK : IN std_logic;
 		CLOCK_ENABLE : IN std_logic;
 		RESET : IN std_logic;          
@@ -124,6 +128,7 @@ begin
 	
 	Inst_Sine_Generator: Sine_Generator PORT MAP(
 		HARMONIC => x"1",
+		PHASE => x"00",
 		CLOCK => clk,
 		CLOCK_ENABLE => CLOCK_ENABLE,
 		RESET => '0',
@@ -132,6 +137,7 @@ begin
 	
 	Inst_Square_Generator: Square_Generator PORT MAP(
 		HARMONIC => x"2",
+		PHASE => x"00",
 		CLOCK => clk,
 		CLOCK_ENABLE => CLOCK_ENABLE,
 		RESET => '0',
@@ -141,6 +147,7 @@ begin
 	
 	Inst_Sawtooth_Generator: Sawtooth_Generator PORT MAP(
 		HARMONIC => x"1",
+		PHASE => x"00",
 		CLOCK => clk,
 		CLOCK_ENABLE => CLOCK_ENABLE,
 		RESET => '0',
@@ -149,6 +156,7 @@ begin
 
 	Inst_Triangle_Generator: Triangle_Generator PORT MAP(
 		HARMONIC => x"3",
+		PHASE => x"00",
 		CLOCK => clk,
 		CLOCK_ENABLE => CLOCK_ENABLE,
 		RESET => '0',

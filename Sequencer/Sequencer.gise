@@ -37,9 +37,7 @@
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="Sine_Generator.xst"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="Sine_Generator_stx_beh.prj"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="Sine_Generator_summary.html"/>
-    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="Sine_Generator_tb_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="Sine_Generator_tb_isim_beh.exe"/>
-    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="Sine_Generator_tb_isim_beh.wdb"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="Sine_Generator_tb_stx_beh.prj"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="Sine_Generator_xst.xrpt"/>
     <file xil_pn:fileType="FILE_VHDL_INSTTEMPLATE" xil_pn:name="Square_Generator.vhi"/>
@@ -49,7 +47,9 @@
     <file xil_pn:fileType="FILE_VHDL_INSTTEMPLATE" xil_pn:name="Tone_Mixer.vhi"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="Tone_Mixer_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="Tone_Mixer_stx_beh.prj"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="Tone_Mixer_tb_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="Tone_Mixer_tb_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="Tone_Mixer_tb_isim_beh.wdb"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="Tone_Mixer_tb_stx_beh.prj"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="Top_Level.bgn" xil_pn:subbranch="FPGAConfiguration"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BIT" xil_pn:name="Top_Level.bit" xil_pn:subbranch="FPGAConfiguration"/>
@@ -132,11 +132,11 @@
   </files>
 
   <transforms xmlns="http://www.xilinx.com/XMLSchema">
-    <transform xil_pn:end_ts="1306181756" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1306181756">
+    <transform xil_pn:end_ts="1306254691" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1306254691">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1306249614" xil_pn:in_ck="-4931322119125611094" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1306249614">
+    <transform xil_pn:end_ts="1306255357" xil_pn:in_ck="-4931322119125611094" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1306255357">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="Clock_Divider.vhd"/>
@@ -157,20 +157,20 @@
       <outfile xil_pn:name="multiplier.vhd"/>
       <outfile xil_pn:name="multiplier_tb.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1306249476" xil_pn:in_ck="-7186897585538331039" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="3400551444420829536" xil_pn:start_ts="1306249476">
+    <transform xil_pn:end_ts="1306255081" xil_pn:in_ck="-7186897585538331039" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-1886302858406059323" xil_pn:start_ts="1306255081">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="dcm.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1306249476" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-3587351174509697182" xil_pn:start_ts="1306249476">
+    <transform xil_pn:end_ts="1306255081" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="6021349088364560391" xil_pn:start_ts="1306255081">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1306181756" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="-5704962867769484850" xil_pn:start_ts="1306181756">
+    <transform xil_pn:end_ts="1306254691" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="-5704962867769484850" xil_pn:start_ts="1306254691">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1306249614" xil_pn:in_ck="-3866991767229930226" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1306249614">
+    <transform xil_pn:end_ts="1306255357" xil_pn:in_ck="-3866991767229930226" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1306255357">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="Clock_Divider.vhd"/>
@@ -192,24 +192,24 @@
       <outfile xil_pn:name="multiplier.vhd"/>
       <outfile xil_pn:name="multiplier_tb.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1306249615" xil_pn:in_ck="-3866991767229930226" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="7606214643634922658" xil_pn:start_ts="1306249614">
+    <transform xil_pn:end_ts="1306255358" xil_pn:in_ck="-3866991767229930226" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="8304758344283705900" xil_pn:start_ts="1306255357">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name="Sine_Generator_tb_beh.prj"/>
-      <outfile xil_pn:name="Sine_Generator_tb_isim_beh.exe"/>
+      <outfile xil_pn:name="Tone_Mixer_tb_beh.prj"/>
+      <outfile xil_pn:name="Tone_Mixer_tb_isim_beh.exe"/>
       <outfile xil_pn:name="fuse.log"/>
       <outfile xil_pn:name="isim"/>
       <outfile xil_pn:name="isim.log"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1306249615" xil_pn:in_ck="7956685208473361111" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="4346492990771894671" xil_pn:start_ts="1306249615">
+    <transform xil_pn:end_ts="1306255359" xil_pn:in_ck="7956685208473361111" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="6251165400600619641" xil_pn:start_ts="1306255358">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name="Sine_Generator_tb_isim_beh.wdb"/>
+      <outfile xil_pn:name="Tone_Mixer_tb_isim_beh.wdb"/>
       <outfile xil_pn:name="isim.cmd"/>
       <outfile xil_pn:name="isim.log"/>
     </transform>

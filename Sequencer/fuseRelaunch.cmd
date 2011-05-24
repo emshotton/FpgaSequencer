@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -o "/home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Sine_Generator_tb_isim_beh.exe" -prj "/home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Sine_Generator_tb_beh.prj" "work.Sine_Generator_tb" 
+-intstyle "ise" -incremental -o "/home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Tone_Mixer_tb_isim_beh.exe" -prj "/home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Tone_Mixer_tb_beh.prj" "work.Tone_Mixer_tb" 

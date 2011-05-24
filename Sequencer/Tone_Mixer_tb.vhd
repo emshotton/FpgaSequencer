@@ -45,6 +45,10 @@ ARCHITECTURE behavior OF Tone_Mixer_tb IS
          IN_B : IN  std_logic_vector(7 downto 0);
          IN_C : IN  std_logic_vector(7 downto 0);
          IN_D : IN  std_logic_vector(7 downto 0);
+			LEVEL_A : IN std_logic_vector(7 downto 0);
+			LEVEL_B : IN std_logic_vector(7 downto 0);
+			LEVEL_C : IN std_logic_vector(7 downto 0);
+			LEVEL_D : IN std_logic_vector(7 downto 0);
          OUTPUT : OUT  std_logic_vector(7 downto 0);
          ENABLED_INPUTS : IN  std_logic_vector(3 downto 0);
          CLOCK : IN  std_logic
@@ -57,13 +61,17 @@ ARCHITECTURE behavior OF Tone_Mixer_tb IS
    signal IN_B : std_logic_vector(7 downto 0) := (others => '0');
    signal IN_C : std_logic_vector(7 downto 0) := (others => '0');
    signal IN_D : std_logic_vector(7 downto 0) := (others => '0');
+	signal LEVEL_A : std_logic_vector(7 downto 0) := (others => '0');
+	signal LEVEL_B : std_logic_vector(7 downto 0) := (others => '0');
+	signal LEVEL_C : std_logic_vector(7 downto 0) := (others => '0');
+	signal LEVEL_D : std_logic_vector(7 downto 0) := (others => '0');
    signal ENABLED_INPUTS : std_logic_vector(3 downto 0) := (others => '0');
    signal CLOCK : std_logic := '0';
  	--Outputs
    signal OUTPUT : std_logic_vector(7 downto 0);
 
    -- Clock period definitions
-   constant CLOCK_period : time := 10 ns;
+   constant CLOCK_period : time := 40 ns;
  
 BEGIN
  
@@ -73,6 +81,10 @@ BEGIN
           IN_B => IN_B,
           IN_C => IN_C,
           IN_D => IN_D,
+			 LEVEL_A => LEVEL_A,
+			 LEVEL_B => LEVEL_B,
+			 LEVEL_C => LEVEL_C,
+			 LEVEL_D => LEVEL_D,
           OUTPUT => OUTPUT,
           ENABLED_INPUTS => ENABLED_INPUTS,
           CLOCK => CLOCK
@@ -95,12 +107,17 @@ BEGIN
       wait for 100 ns;	
 
       wait for CLOCK_period*10;
-		IN_A<=x"0F";
-		IN_B<=x"0F";
-		IN_C<=x"0F";
-		IN_D<=x"0F";
+		IN_A<=x"00";
+		IN_B<=x"00";
+		IN_C<=x"00";
+		IN_D<=x"77";
+		LEVEL_A <= x"FF";
+		LEVEL_B <= x"FF";
+		LEVEL_C <= x"FF";
+		LEVEL_D <= x"80";
 		ENABLED_INPUTS<="1111";
       -- insert stimulus here 
+
 
       wait;
    end process;
