@@ -31,6 +31,7 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity Clock_Divider is
     Port ( CLOCK : in  STD_LOGIC;
+			  CLOCK_ENABLE : in STD_LOGIC;
 			  DIVISOR : in STD_LOGIC_VECTOR(7 downto 0);
            OUTPUT : out  STD_LOGIC);
 end Clock_Divider;
@@ -44,7 +45,7 @@ begin
 
 	process(CLOCK)
 	begin
-		if(CLOCK'event and CLOCK ='1') then
+		if(CLOCK'event and CLOCK ='1' and CLOCK_ENABLE = '1') then
 			COUNTER <= std_logic_vector(unsigned(COUNTER)+1);
 			OUTPUT <= '0';
 			if (unsigned(COUNTER) = unsigned(DIVISOR)) then

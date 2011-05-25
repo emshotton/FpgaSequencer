@@ -5,7 +5,7 @@ Loading device for application Rf_Device from file '3s250e.nph' in environment
    "Top_Level" is an NCD, version 3.2, device xc3s250e, package vq100, speed -5
 Opened constraints file Top_Level.pcf.
 
-Mon May 23 22:22:26 2011
+Wed May 25 19:18:39 2011
 
 /opt/Xilinx/13.1/ISE_DS/ISE/bin/lin64/unwrapped/bitgen -intstyle ise -w -g DebugBitstream:No -g Binary:no -g CRC:Enable -g ConfigRate:1 -g ProgPin:PullUp -g DonePin:PullUp -g TckPin:PullUp -g TdiPin:PullUp -g TdoPin:PullUp -g TmsPin:PullUp -g UnusedPin:PullDown -g UserID:0xFFFFFFFF -g DCMShutdown:Disable -g StartUpClk:CClk -g DONE_cycle:4 -g GTS_cycle:5 -g GWE_cycle:6 -g LCK_cycle:NoWait -g Security:None -g DonePipe:No -g DriveDone:No Top_Level.ncd 
 

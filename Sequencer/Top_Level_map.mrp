@@ -9,37 +9,37 @@ Target Device  : xc3s250e
 Target Package : vq100
 Target Speed   : -5
 Mapper Version : spartan3e -- $Revision: 1.55 $
-Mapped Date    : Mon May 23 22:22:01 2011
+Mapped Date    : Wed May 25 19:18:14 2011
 
 Design Summary
 --------------
 Number of errors:      0
 Number of warnings:    0
 Logic Utilization:
-  Number of Slice Flip Flops:            58 out of   4,896    1%
-  Number of 4 input LUTs:                24 out of   4,896    1%
+  Number of Slice Flip Flops:           186 out of   4,896    3%
+  Number of 4 input LUTs:                91 out of   4,896    1%
 Logic Distribution:
-  Number of occupied Slices:             33 out of   2,448    1%
-    Number of Slices containing only related logic:      33 out of      33 100%
-    Number of Slices containing unrelated logic:          0 out of      33   0%
+  Number of occupied Slices:            126 out of   2,448    5%
+    Number of Slices containing only related logic:     126 out of     126 100%
+    Number of Slices containing unrelated logic:          0 out of     126   0%
       *See NOTES below for an explanation of the effects of unrelated logic.
-  Total Number of 4 input LUTs:          38 out of   4,896    1%
-    Number used as logic:                24
-    Number used as a route-thru:         14
+  Total Number of 4 input LUTs:         126 out of   4,896    2%
+    Number used as logic:                91
+    Number used as a route-thru:         35
 
   The Slice Logic Distribution report is not meaningful if the design is
   over-mapped for a non-slice resource or if Placement fails.
 
   Number of bonded IOBs:                  9 out of      66   13%
-  Number of RAMB16s:                      2 out of      12   16%
+  Number of RAMB16s:                      1 out of      12    8%
   Number of BUFGMUXs:                     1 out of      24    4%
   Number of MULT18X18SIOs:                1 out of      12    8%
 
-Average Fanout of Non-Clock Nets:                1.73
+Average Fanout of Non-Clock Nets:                2.30
 
-Peak Memory Usage:  375 MB
-Total REAL time to MAP completion:  2 secs 
-Total CPU time to MAP completion:   2 secs 
+Peak Memory Usage:  377 MB
+Total REAL time to MAP completion:  3 secs 
+Total CPU time to MAP completion:   3 secs 
 
 NOTES:
 
@@ -83,6 +83,16 @@ Section 2 - Warnings
 
 Section 3 - Informational
 -------------------------
+INFO:LIT:243 - Logical network Inst_Tone_Mixer/your_instance_name/p<7> has no
+   load.
+INFO:LIT:395 - The above info message is repeated 7 more times for the following
+   (max. 5 shown):
+   Inst_Tone_Mixer/your_instance_name/p<6>,
+   Inst_Tone_Mixer/your_instance_name/p<5>,
+   Inst_Tone_Mixer/your_instance_name/p<4>,
+   Inst_Tone_Mixer/your_instance_name/p<3>,
+   Inst_Tone_Mixer/your_instance_name/p<2>
+   To see the details of these info messages, please use the -detail switch.
 INFO:MapLib:562 - No environment variables are currently set.
 INFO:MapLib:159 - Net Timing constraints on signal clk are pushed forward
    through input buffer.
@@ -92,13 +102,68 @@ INFO:LIT:244 - All of the single ended outputs in this design are using slew
 
 Section 4 - Removed Logic Summary
 ---------------------------------
-   2 block(s) optimized away
+   8 block(s) removed
+   4 block(s) optimized away
+  16 signal(s) removed
 
 Section 5 - Removed Logic
 -------------------------
 
+The trimmed logic report below shows the logic removed from your design due to
+sourceless or loadless signals, and VCC or ground connections.  If the removal
+of a signal or symbol results in the subsequent removal of an additional signal
+or symbol, the message explaining that second removal will be indented.  This
+indentation will be repeated as a chain of related logic is removed.
+
+To quickly locate the original cause for the removal of a chain of logic, look
+above the place where that logic is listed in the trimming report, then locate
+the lines that are least indented (begin at the leftmost edge).
+
+The signal "Inst_Tone_Mixer/your_instance_name/p<7>" is sourceless and has been
+removed.
+The signal "Inst_Tone_Mixer/your_instance_name/p<6>" is sourceless and has been
+removed.
+The signal "Inst_Tone_Mixer/your_instance_name/p<5>" is sourceless and has been
+removed.
+The signal "Inst_Tone_Mixer/your_instance_name/p<4>" is sourceless and has been
+removed.
+The signal "Inst_Tone_Mixer/your_instance_name/p<3>" is sourceless and has been
+removed.
+The signal "Inst_Tone_Mixer/your_instance_name/p<2>" is sourceless and has been
+removed.
+The signal "Inst_Tone_Mixer/your_instance_name/p<1>" is sourceless and has been
+removed.
+The signal "Inst_Tone_Mixer/your_instance_name/p<0>" is sourceless and has been
+removed.
+The signal "Inst_Tone_Mixer/your_instance_name/sig00000010" is sourceless and
+has been removed.
+ Sourceless block "Inst_Tone_Mixer/your_instance_name/blk0000000c" (FF) removed.
+The signal "Inst_Tone_Mixer/your_instance_name/sig0000000f" is sourceless and
+has been removed.
+ Sourceless block "Inst_Tone_Mixer/your_instance_name/blk0000000d" (FF) removed.
+The signal "Inst_Tone_Mixer/your_instance_name/sig0000000e" is sourceless and
+has been removed.
+ Sourceless block "Inst_Tone_Mixer/your_instance_name/blk0000000e" (FF) removed.
+The signal "Inst_Tone_Mixer/your_instance_name/sig0000000d" is sourceless and
+has been removed.
+ Sourceless block "Inst_Tone_Mixer/your_instance_name/blk0000000f" (FF) removed.
+The signal "Inst_Tone_Mixer/your_instance_name/sig0000000c" is sourceless and
+has been removed.
+ Sourceless block "Inst_Tone_Mixer/your_instance_name/blk00000010" (FF) removed.
+The signal "Inst_Tone_Mixer/your_instance_name/sig0000000b" is sourceless and
+has been removed.
+ Sourceless block "Inst_Tone_Mixer/your_instance_name/blk00000011" (FF) removed.
+The signal "Inst_Tone_Mixer/your_instance_name/sig0000000a" is sourceless and
+has been removed.
+ Sourceless block "Inst_Tone_Mixer/your_instance_name/blk00000012" (FF) removed.
+The signal "Inst_Tone_Mixer/your_instance_name/sig00000003" is sourceless and
+has been removed.
+ Sourceless block "Inst_Tone_Mixer/your_instance_name/blk00000013" (FF) removed.
+
 Optimized Block(s):
 TYPE 		BLOCK
+GND 		Inst_Tone_Mixer/your_instance_name/blk00000001
+VCC 		Inst_Tone_Mixer/your_instance_name/blk00000002
 GND 		XST_GND
 VCC 		XST_VCC
 

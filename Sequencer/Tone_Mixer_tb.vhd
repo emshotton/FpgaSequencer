@@ -49,6 +49,7 @@ ARCHITECTURE behavior OF Tone_Mixer_tb IS
 			LEVEL_B : IN std_logic_vector(7 downto 0);
 			LEVEL_C : IN std_logic_vector(7 downto 0);
 			LEVEL_D : IN std_logic_vector(7 downto 0);
+			MODULATOR : IN std_logic_vector(7 downto 0);
          OUTPUT : OUT  std_logic_vector(7 downto 0);
          ENABLED_INPUTS : IN  std_logic_vector(3 downto 0);
          CLOCK : IN  std_logic
@@ -65,6 +66,7 @@ ARCHITECTURE behavior OF Tone_Mixer_tb IS
 	signal LEVEL_B : std_logic_vector(7 downto 0) := (others => '0');
 	signal LEVEL_C : std_logic_vector(7 downto 0) := (others => '0');
 	signal LEVEL_D : std_logic_vector(7 downto 0) := (others => '0');
+	signal MODULATOR : std_logic_vector(7 downto 0) := (others => '0');
    signal ENABLED_INPUTS : std_logic_vector(3 downto 0) := (others => '0');
    signal CLOCK : std_logic := '0';
  	--Outputs
@@ -115,6 +117,7 @@ BEGIN
 		LEVEL_B <= x"FF";
 		LEVEL_C <= x"80";
 		LEVEL_D <= x"FF";
+		MODULATOR <= x"FF";
 		ENABLED_INPUTS<="1110";
       -- insert stimulus here 
 		

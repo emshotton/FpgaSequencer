@@ -38,6 +38,7 @@ entity Tone_Mixer is
 			  LEVEL_B : in std_logic_vector(7 downto 0);
 			  LEVEL_C : in std_logic_vector(7 downto 0);
 			  LEVEL_D : in std_logic_vector(7 downto 0);
+			  MODULATOR : in std_logic_vector(7 downto 0);
            OUTPUT : out  STD_LOGIC_VECTOR (7 downto 0);
            ENABLED_INPUTS : in  STD_LOGIC_VECTOR (3 downto 0);
            CLOCK : in  STD_LOGIC
@@ -58,10 +59,10 @@ signal MULT_A_MIX : STD_LOGIC_VECTOR (15 downto 0);
 signal MULT_B_MIX : STD_LOGIC_VECTOR (7 downto 0);
 signal MULT_OUT_MIX : STD_LOGIC_VECTOR (7 downto 0);
 
-signal MULT_SELECT : STD_LOGIC_VECTOR (3 downto 0);
+signal MULT_SELECT : STD_LOGIC_VECTOR (4 downto 0);
 
 
---Internal divided version of input signals
+--Internal version of input signals
 signal POST_A	 : STD_LOGIC_VECTOR (15 downto 0);
 signal POST_B	 : STD_LOGIC_VECTOR (15 downto 0);
 signal POST_C	 : STD_LOGIC_VECTOR (15 downto 0);
@@ -72,8 +73,11 @@ signal PRE_B : STD_LOGIC_VECTOR (7 downto 0);
 signal PRE_C : STD_LOGIC_VECTOR (7 downto 0);
 signal PRE_D : STD_LOGIC_VECTOR (7 downto 0);
 
-signal READY : STD_LOGIC;
-signal PRE_OUT	 : STD_LOGIC_VECTOR (9 downto 0);
+
+signal PRE_OUT	 : STD_LOGIC_VECTOR (7 downto 0);
+signal MOD_A : STD_LOGIC_VECTOR (7 downto 0);
+signal MOD_B : STD_LOGIC_VECTOR (7 downto 0);
+signal MOD_OUT : STD_LOGIC_VECTOR (7 downto 0);
 
 COMPONENT multiplier
   PORT (
@@ -107,7 +111,7 @@ your_instance_name : multiplier
 	if(CLOCK'event and CLOCK ='1') then
 			MULT_SELECT <= std_logic_vector(unsigned(MULT_SELECT)+1);
 			case MULT_SELECT is
-				when "0000" =>	--Grab all the inputs
+				when "00000" =>	--Grab and latch all the inputs
 					if (ENABLED_INPUTS(0) = '1') then 
 						PRE_A <=IN_A;
 					else
@@ -128,48 +132,65 @@ your_instance_name : multiplier
 					else
 						PRE_D<="00000000";
 					end if;
-				when "0001" =>	--Begin signal A multiplication
+					--the modulator value
+					MOD_A <= MODULATOR;
+				when "00001" =>	--Begin signal A multiplication
 					MULT_A(7 downto 0) <= PRE_A;
 					MULT_A(15 downto 8) <= x"00";
 					MULT_B <= LEVEL_A;
-				when "0010" => --Begin signal B multiplication
+				when "00010" => --Begin signal B multiplication
 					MULT_A(7 downto 0) <= PRE_B;
 					MULT_A(15 downto 8) <= x"00";
 					MULT_B <= LEVEL_B;
-				when "0011" => --Begin signal C multiplication and finish signal A multiplication 
+				when "00011" => --Begin signal C multiplication and finish signal A multiplication 
 					MULT_A(7 downto 0) <= PRE_C;
 					MULT_A(15 downto 8) <= x"00";
 					MULT_B<= LEVEL_C;
-				when "0100" => --Begin signal C multiplication and finish signal B multiplication
+				when "00100" => --Begin signal C multiplication and finish signal B multiplication
 					MULT_A(7 downto 0) <= PRE_D;
 					MULT_A(15 downto 8) <= x"00";
 					MULT_B <= LEVEL_D;
-				when "0101" => 
+				when "00101" => 
 					POST_A(7 downto 0) <= MULT_OUT(15 downto 8);
 					POST_A(15 downto 8) <= x"00";
-				when "0110"=> --Finish signal C multiplication
+				when "00110"=> --Finish signal C multiplication
 					POST_B(7 downto 0) <= MULT_OUT(15 downto 8);
 					POST_B(15 downto 8) <= x"00";
-				when "0111"=> --Finish signal D multiplication
+				when "00111"=> --Finish signal D multiplication
 					POST_C(7 downto 0) <= MULT_OUT(15 downto 8);
 					POST_C(15 downto 8) <= x"00";
-				when "1000"=>
+				when "01000"=>
 					POST_D(7 downto 0) <= MULT_OUT(15 downto 8);
 					POST_D(15 downto 8) <= x"00";
-				when "1001"=>
+				when "01001"=>
 					MULT_A_MIX <= std_logic_vector(unsigned(POST_A)+unsigned(POST_B)+unsigned(POST_C)+unsigned(POST_D));
 					--MULT_A_MIX <= (others =>'0');
-				when "1010"=>
+				when "01010"=>
 					--OUT_B<=MULT_A_MIX;
 					MULT_A <= MULT_A_MIX;
 					MULT_B <= MULT_B_MIX;
-				when "1011"=>
-				when "1100"=>
-				when "1101"=>
-				when "1110"=>
-					OUTPUT <= MULT_OUT(15 downto 8);
+				when "01011"=>
+				when "01100"=>
+				when "01101"=>
+				when "01110"=>
+				MOD_B <= MULT_OUT(15 downto 8);
+				when "01111"=>
+				MULT_A(7 downto 0) <= MOD_A;
+				MULT_A(15 downto 8) <= x"00";
+				MULT_B <= MOD_B;
+				when "10000"=>
+				when "10001"=>
+				when "10010"=>
+				when "10011"=>
+				OUTPUT<=MULT_OUT(15 downto 8);
+				when "10100"=>
+				when "10101"=>
+				when "10110"=>
+				when "10111"=>
+				
+					
 				when others =>
-					MULT_SELECT <= "0000";
+					MULT_SELECT <= "00000";
 			end case;
 		end if;
 	end process;

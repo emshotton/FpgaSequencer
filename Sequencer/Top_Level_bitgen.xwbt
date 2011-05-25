@@ -1,8 +1,8 @@
 INTSTYLE=ise
-INFILE=/home/matt/Programming/VHDL/sequencer/Sequencer/Top_Level.ncd
-OUTFILE=/home/matt/Programming/VHDL/sequencer/Sequencer/Top_Level.bit
+INFILE=/home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Top_Level.ncd
+OUTFILE=/home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Top_Level.bit
 FAMILY=Spartan3E
 PART=xc3s250e-5vq100
-WORKINGDIR=/home/matt/Programming/VHDL/sequencer/Sequencer
+WORKINGDIR=/home/matt/Programming/VHDL/FpgaSequencer/Sequencer
 LICENSE=WebPack
 USER_INFO=206430083_0_0_111

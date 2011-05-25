@@ -31,8 +31,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity Top_Level is
     Port ( clk : in  STD_LOGIC;
-           SOUND_OUT : out  STD_LOGIC_VECTOR (7 downto 0);
-			  TICK : out std_logic
+           SOUND_OUT : out  STD_LOGIC_VECTOR (7 downto 0)
+			  --TICK : out std_logic
 			  );
 end Top_Level;
 
@@ -48,6 +48,7 @@ architecture Behavioral of Top_Level is
 		LEVEL_B : IN std_logic_vector(7 downto 0);
 		LEVEL_C : IN std_logic_vector(7 downto 0);
 		LEVEL_D : IN std_logic_vector(7 downto 0);
+		MODULATOR : IN std_logic_vector(7 downto 0);
 		ENABLED_INPUTS : IN std_logic_vector(3 downto 0);
 		CLOCK : IN std_logic;          
 		OUTPUT : OUT std_logic_vector(7 downto 0)
@@ -57,6 +58,7 @@ architecture Behavioral of Top_Level is
 	COMPONENT Clock_Divider
 	PORT(
 		CLOCK : IN std_logic;
+		CLOCK_ENABLE : in STD_LOGIC;
 		DIVISOR : IN std_logic_vector(7 downto 0);          
 		OUTPUT : OUT std_logic
 		);
@@ -109,11 +111,13 @@ architecture Behavioral of Top_Level is
 
 	signal SOUND : std_logic_vector(7 downto 0);
 	signal CLOCK_ENABLE : std_logic;
+	signal MODULATOR_ENABLE : std_logic;
 	
 	signal SINE : std_logic_vector(7 downto 0);
 	signal SQUARE : std_logic_vector(7 downto 0);
 	signal SAW : std_logic_vector(7 downto 0);
 	signal TRIANGLE : std_logic_vector(7 downto 0);
+	signal MODULATOR : std_logic_vector(7 downto 0);
 	
 begin
 
@@ -121,7 +125,7 @@ begin
 	begin
 		if (clk'event and clk ='1') then
 			SOUND_OUT <= SOUND;
-			TICK <= CLOCK_ENABLE;
+			--TICK <= CLOCK_ENABLE;
 		end if;
 	end process;
 	
@@ -132,9 +136,10 @@ begin
 		IN_C => TRIANGLE,
 		IN_D => SQUARE,
 		LEVEL_A => x"FF",
-		LEVEL_B => x"10",
+		LEVEL_B => x"60",
 		LEVEL_C => x"FF",
 		LEVEL_D => x"FF",
+		MODULATOR => MODULATOR,
 		OUTPUT => SOUND,
 		ENABLED_INPUTS => "0011",
 		CLOCK => clk
@@ -142,8 +147,26 @@ begin
 
 	Inst_Clock_Divider: Clock_Divider PORT MAP(
 		CLOCK => clk,
-		DIVISOR => x"42",
+		CLOCK_ENABLE => '1',
+		DIVISOR => x"04",
 		OUTPUT => CLOCK_ENABLE
+	);
+	
+	Modulator_Sine_Generator: Sine_Generator PORT MAP(
+		HARMONIC => x"1",
+		PHASE => x"00",
+		CLOCK => clk,
+		CLOCK_ENABLE => MODULATOR_ENABLE,
+		RESET => '0',
+		OUTPUT => MODULATOR
+	);
+	
+
+	Modulator_Clock_Divider: Clock_Divider PORT MAP(
+		CLOCK => clk,
+		CLOCK_ENABLE => CLOCK_ENABLE,
+		DIVISOR => x"F0",
+		OUTPUT => MODULATOR_ENABLE
 	);
 	
 	Inst_Sine_Generator: Sine_Generator PORT MAP(
@@ -165,8 +188,8 @@ begin
 	);
 	
 	Inst_Sawtooth_Generator: Sawtooth_Generator PORT MAP(
-		HARMONIC => x"1",
-		PHASE => x"00",
+		HARMONIC => x"3",
+		PHASE => x"80",
 		CLOCK => clk,
 		CLOCK_ENABLE => CLOCK_ENABLE,
 		RESET => '0',
