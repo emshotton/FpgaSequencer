@@ -17,7 +17,7 @@ Parsing VHDL file "/home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Top_Level
 Starting static elaboration
 Completed static elaboration
 Fuse Memory Usage: 77644 KB
-Fuse CPU Usage: 250 ms
+Fuse CPU Usage: 370 ms
 Using precompiled package standard from library std
 Using precompiled package std_logic_1164 from library ieee
 Using precompiled package numeric_std from library ieee
@@ -44,5 +44,5 @@ Waiting for 11 sub-compilation(s) to finish...
 Compiled 32 VHDL Units
 Built simulation executable /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Top_Level_tb_isim_beh.exe
 Fuse Memory Usage: 191304 KB
-Fuse CPU Usage: 480 ms
-GCC CPU Usage: 5830 ms
+Fuse CPU Usage: 620 ms
+GCC CPU Usage: 5960 ms

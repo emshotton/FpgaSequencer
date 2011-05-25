@@ -141,7 +141,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1306336402" xil_pn:in_ck="3284986057202476362" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1306336402">
+    <transform xil_pn:end_ts="1306339884" xil_pn:in_ck="3284986057202476362" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1306339884">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="Clock_Divider.vhd"/>
@@ -162,12 +162,12 @@
       <outfile xil_pn:name="Triangle_Ram.vhd"/>
       <outfile xil_pn:name="multiplier_tb.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1306336413" xil_pn:in_ck="-7186897585538331039" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="707380786754432405" xil_pn:start_ts="1306336413">
+    <transform xil_pn:end_ts="1306339251" xil_pn:in_ck="-7186897585538331039" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="707380786754432405" xil_pn:start_ts="1306339251">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="dcm.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1306336413" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-4225944254237565225" xil_pn:start_ts="1306336413">
+    <transform xil_pn:end_ts="1306339251" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-4225944254237565225" xil_pn:start_ts="1306339251">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
@@ -177,7 +177,7 @@
       <outfile xil_pn:name="ipcore_dir/multiplier.ngc"/>
       <outfile xil_pn:name="ipcore_dir/multiplier.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1306336402" xil_pn:in_ck="-2534884038822334988" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1306336402">
+    <transform xil_pn:end_ts="1306339884" xil_pn:in_ck="-2534884038822334988" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1306339884">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="Clock_Divider.vhd"/>
@@ -200,9 +200,11 @@
       <outfile xil_pn:name="ipcore_dir/multiplier.vhd"/>
       <outfile xil_pn:name="multiplier_tb.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1306336418" xil_pn:in_ck="-2534884038822334988" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="582989403060069932" xil_pn:start_ts="1306336413">
+    <transform xil_pn:end_ts="1306339890" xil_pn:in_ck="-2534884038822334988" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="582989403060069932" xil_pn:start_ts="1306339884">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="Top_Level_tb_beh.prj"/>
       <outfile xil_pn:name="Top_Level_tb_isim_beh.exe"/>
       <outfile xil_pn:name="fuse.log"/>
@@ -210,9 +212,11 @@
       <outfile xil_pn:name="isim.log"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1306336418" xil_pn:in_ck="-3780736293763534955" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-6265565225662493847" xil_pn:start_ts="1306336418">
+    <transform xil_pn:end_ts="1306339890" xil_pn:in_ck="-3780736293763534955" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-8743940912726626759" xil_pn:start_ts="1306339890">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="Top_Level_tb_isim_beh.wdb"/>
       <outfile xil_pn:name="isim.cmd"/>
       <outfile xil_pn:name="isim.log"/>

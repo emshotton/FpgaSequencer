@@ -132,17 +132,17 @@ begin
 		IN_C => TRIANGLE,
 		IN_D => SQUARE,
 		LEVEL_A => x"FF",
-		LEVEL_B => x"FF",
+		LEVEL_B => x"10",
 		LEVEL_C => x"FF",
-		LEVEL_D => x"F0",
+		LEVEL_D => x"FF",
 		OUTPUT => SOUND,
-		ENABLED_INPUTS => "0111",
+		ENABLED_INPUTS => "0011",
 		CLOCK => clk
 	);
 
 	Inst_Clock_Divider: Clock_Divider PORT MAP(
 		CLOCK => clk,
-		DIVISOR => x"0A",
+		DIVISOR => x"42",
 		OUTPUT => CLOCK_ENABLE
 	);
 	
@@ -150,7 +150,7 @@ begin
 		HARMONIC => x"1",
 		PHASE => x"00",
 		CLOCK => clk,
-		CLOCK_ENABLE => CLOCK_ENABLE,--CLOCK_ENABLE,
+		CLOCK_ENABLE => CLOCK_ENABLE,
 		RESET => '0',
 		OUTPUT => SINE
 	);

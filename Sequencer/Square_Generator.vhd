@@ -39,7 +39,7 @@ entity Square_Generator is
 end Square_Generator;
 
 architecture Behavioral of Square_Generator is
-	signal COUNT : unsigned(7 downto 0);
+	signal COUNT : unsigned(7 downto 0) := "00000000";
 	signal PHASE_DIFF : std_logic_vector(7 downto 0):= "00000000";
 	signal PHASE_VALUE: std_logic_vector(7 downto 0):= "00000000";
 begin
@@ -56,9 +56,10 @@ begin
 
 			COUNT <= COUNT + unsigned(HARMONIC) + unsigned(PHASE_DIFF);
 			if (COUNT>127) then
-				OUTPUT<=x"FF";
+				OUTPUT<=x"FE";
+			--elsif(COUNT < 127)
 			else
-				OUTPUT<=x"00";
+				OUTPUT<=x"01";
 			end if;
 		end if;
 	end process;
