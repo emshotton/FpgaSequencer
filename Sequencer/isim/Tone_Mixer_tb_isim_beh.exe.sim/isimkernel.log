@@ -1,0 +1,29 @@
+Command line:
+   Tone_Mixer_tb_isim_beh.exe
+     -simmode  gui
+     -simrunnum  1
+     -socket  48000
+
+Wed May 25 14:54:20 2011
+
+
+ Elaboration Time: 0.02 sec
+
+ Current Memory Usage: 158.077 Meg
+
+ Total Signals          : 77
+ Total Nets             : 1287
+ Total Signal Drivers   : 42
+ Total Blocks           : 24
+ Total Primitive Blocks : 17
+ Total Processes        : 16
+ Total Traceable Variables  : 159
+ Total Scalar Nets and Variables : 2252
+Total Line Count : 97
+
+ Total Simulation Time: 0.04 sec
+
+ Current Memory Usage: 166.47 Meg
+
+Wed May 25 14:54:54 2011
+

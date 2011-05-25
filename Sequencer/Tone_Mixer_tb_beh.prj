@@ -1,2 +1,3 @@
+vhdl work "ipcore_dir/multiplier.vhd"
 vhdl work "Tone_Mixer.vhd"
 vhdl work "Tone_Mixer_tb.vhd"

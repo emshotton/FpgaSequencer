@@ -51,7 +51,11 @@ ARCHITECTURE behavior OF Tone_Mixer_tb IS
 			LEVEL_D : IN std_logic_vector(7 downto 0);
          OUTPUT : OUT  std_logic_vector(7 downto 0);
          ENABLED_INPUTS : IN  std_logic_vector(3 downto 0);
-         CLOCK : IN  std_logic
+         CLOCK : IN  std_logic;
+			OUT_A : out STD_LOGIC_VECTOR(7 downto 0);
+			OUT_B : out STD_LOGIC_VECTOR(15 downto 0);
+			OUT_C : out STD_LOGIC_VECTOR(7 downto 0);
+			OUT_D : out STD_LOGIC_VECTOR(7 downto 0)
         );
     END COMPONENT;
     
@@ -69,7 +73,10 @@ ARCHITECTURE behavior OF Tone_Mixer_tb IS
    signal CLOCK : std_logic := '0';
  	--Outputs
    signal OUTPUT : std_logic_vector(7 downto 0);
-
+	signal OUT_A : STD_LOGIC_VECTOR(7 downto 0);
+	signal OUT_B : STD_LOGIC_VECTOR(15 downto 0);
+	signal OUT_C : STD_LOGIC_VECTOR(7 downto 0);
+	signal OUT_D : STD_LOGIC_VECTOR(7 downto 0);
    -- Clock period definitions
    constant CLOCK_period : time := 40 ns;
  
@@ -87,7 +94,12 @@ BEGIN
 			 LEVEL_D => LEVEL_D,
           OUTPUT => OUTPUT,
           ENABLED_INPUTS => ENABLED_INPUTS,
-          CLOCK => CLOCK
+          CLOCK => CLOCK,
+			 OUT_A => OUT_A,
+			 OUT_B => OUT_B,
+			 OUT_C => OUT_C,
+			 OUT_D => OUT_D
+			 
         );
 
    -- Clock process definitions
@@ -107,17 +119,20 @@ BEGIN
       wait for 100 ns;	
 
       wait for CLOCK_period*10;
-		IN_A<=x"00";
-		IN_B<=x"00";
-		IN_C<=x"00";
-		IN_D<=x"77";
-		LEVEL_A <= x"FF";
+		IN_A<=x"FF";
+		IN_B<=x"FF";
+		IN_C<=x"FF";
+		IN_D<=x"FF";
+		LEVEL_A <= x"00";
 		LEVEL_B <= x"FF";
-		LEVEL_C <= x"FF";
-		LEVEL_D <= x"80";
-		ENABLED_INPUTS<="1111";
+		LEVEL_C <= x"80";
+		LEVEL_D <= x"FF";
+		ENABLED_INPUTS<="1110";
       -- insert stimulus here 
+		
+		wait for 200 ns;
 
+		
 
       wait;
    end process;

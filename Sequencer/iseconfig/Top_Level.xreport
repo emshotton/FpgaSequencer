@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2011-05-24T16:19:46</DateModified>
+  <DateModified>2011-05-25T14:08:00</DateModified>
   <ModuleName>Top_Level</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
   <SavedFilePath>/home/matt/Programming/VHDL/FpgaSequencer/Sequencer/iseconfig/Top_Level.xreport</SavedFilePath>

@@ -1,0 +1,15 @@
+# Output products list for <multiplier>
+_xmsgs/pn_parser.xmsgs
+multiplier.asy
+multiplier.gise
+multiplier.ngc
+multiplier.sym
+multiplier.v
+multiplier.veo
+multiplier.vhd
+multiplier.vho
+multiplier.xco
+multiplier.xise
+multiplier_flist.txt
+multiplier_readme.txt
+multiplier_xmdf.tcl
