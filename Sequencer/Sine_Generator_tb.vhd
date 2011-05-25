@@ -56,7 +56,7 @@ ARCHITECTURE behavior OF Sine_Generator_tb IS
    signal CLOCK : std_logic := '0';
    signal CLOCK_ENABLE : std_logic := '0';
    signal RESET : std_logic := '0';
-	signal PHASE : std_logic_vector(7 downto 0) := (others => '0');
+	signal PHASE : std_logic_vector(7 downto 0) := x"00";
  	--Outputs
    signal OUTPUT : std_logic_vector(7 downto 0);
 
@@ -95,13 +95,13 @@ BEGIN
 		RESET <='0';
 		HARMONIC <= "0001";
 		CLOCK_ENABLE<='1';
-		
+		PHASE<=x"00";
       wait for CLOCK_period*10;
 
       -- insert stimulus here 
 
 		wait for 100 ns;
-		PHASE<=x"00";
+		
 
       wait;
    end process;

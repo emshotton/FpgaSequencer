@@ -95,7 +95,7 @@ BEGIN
 		RESET <= '0';
 		
       wait for CLOCK_period*10;
-		HARMONIC <= "0111";
+		HARMONIC <= "0001";
 		CLOCK_ENABLE <= '1';
 		PHASE <= x"00";
       -- insert stimulus here 

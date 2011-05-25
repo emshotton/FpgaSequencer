@@ -92,3 +92,5 @@ map -intstyle ise -p xc3s250e-vq100-5 -cm area -ir off -pr off -c 100 -o Top_Lev
 par -w -intstyle ise -ol high -t 1 Top_Level_map.ncd Top_Level.ncd Top_Level.pcf 
 trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml Top_Level.twx Top_Level.ncd -o Top_Level.twr Top_Level.pcf -ucf BPC3003_2.03+.ucf 
 bitgen -intstyle ise -f Top_Level.ut Top_Level.ncd 
+vhdtdtfi -prj Sequencer -o /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Top_Level.vhi -module Top_Level -template /opt/Xilinx/13.1/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work Sine_Ram.vhd -lib work Sine_Generator.vhd -lib work Top_Level.vhd 
+vhdtdtfi -prj Sequencer -o /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Top_Level.vhi -module Top_Level -template /opt/Xilinx/13.1/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work ipcore_dir/multiplier.vhd -lib work Sine_Ram.vhd -lib work Tone_Mixer.vhd -lib work Sine_Generator.vhd -lib work Top_Level.vhd 

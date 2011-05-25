@@ -40,7 +40,7 @@ end Sawtooth_Generator;
 
 architecture Behavioral of Sawtooth_Generator is
 
-signal COUNTER : STD_LOGIC_VECTOR(7 downto 0);
+signal COUNTER : STD_LOGIC_VECTOR(7 downto 0):= "00000000";
 signal PHASE_DIFF : std_logic_vector(7 downto 0):= "00000000";
 signal PHASE_VALUE: std_logic_vector(7 downto 0):= "00000000";
 	

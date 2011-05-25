@@ -42,7 +42,9 @@ ARCHITECTURE behavior OF Top_Level_tb IS
     COMPONENT Top_Level
     PORT(
          clk : IN  std_logic;
-         SOUND_OUT : OUT  std_logic_vector(7 downto 0)
+         SOUND_OUT : OUT  std_logic_vector(7 downto 0);
+			TICK : OUT std_logic
+			
         );
     END COMPONENT;
     
@@ -52,7 +54,7 @@ ARCHITECTURE behavior OF Top_Level_tb IS
 
  	--Outputs
    signal SOUND_OUT : std_logic_vector(7 downto 0);
-
+	signal TICK : std_logic;
    -- Clock period definitions
    constant clk_period : time := 10 ns;
  
@@ -61,7 +63,8 @@ BEGIN
 	-- Instantiate the Unit Under Test (UUT)
    uut: Top_Level PORT MAP (
           clk => clk,
-          SOUND_OUT => SOUND_OUT
+          SOUND_OUT => SOUND_OUT,
+			 TICK => TICK
         );
 
    -- Clock process definitions

@@ -1,5 +1,5 @@
 
--- VHDL Instantiation Created from source file Clock_Divider.vhd -- 20:17:07 05/23/2011
+-- VHDL Instantiation Created from source file Clock_Divider.vhd -- 15:46:15 05/25/2011
 --
 -- Notes: 
 -- 1) This instantiation template has been automatically generated using types

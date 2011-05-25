@@ -40,11 +40,7 @@ entity Tone_Mixer is
 			  LEVEL_D : in std_logic_vector(7 downto 0);
            OUTPUT : out  STD_LOGIC_VECTOR (7 downto 0);
            ENABLED_INPUTS : in  STD_LOGIC_VECTOR (3 downto 0);
-           CLOCK : in  STD_LOGIC;
-			  OUT_A : out STD_LOGIC_VECTOR(7 downto 0);
-			  OUT_B : out STD_LOGIC_VECTOR(15 downto 0);
-			  OUT_C : out STD_LOGIC_VECTOR(7 downto 0);
-			  OUT_D : out STD_LOGIC_VECTOR(7 downto 0)
+           CLOCK : in  STD_LOGIC
 			  );
 end Tone_Mixer;
 
@@ -164,7 +160,7 @@ your_instance_name : multiplier
 					MULT_A_MIX <= std_logic_vector(unsigned(POST_A)+unsigned(POST_B)+unsigned(POST_C)+unsigned(POST_D));
 					--MULT_A_MIX <= (others =>'0');
 				when "1010"=>
-					OUT_B<=MULT_A_MIX;
+					--OUT_B<=MULT_A_MIX;
 					MULT_A <= MULT_A_MIX;
 					MULT_B <= MULT_B_MIX;
 				when "1011"=>
@@ -191,7 +187,7 @@ your_instance_name : multiplier
 				when "0010" =>
 					MULT_B_MIX <= "11111111";
 				when "0011" =>
-					MULT_B_MIX <= "00000000";
+					MULT_B_MIX <= "10000000";
 				when "0100" =>
 					MULT_B_MIX <= "11111111";
 				when "0101" =>

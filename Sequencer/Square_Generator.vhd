@@ -43,14 +43,6 @@ architecture Behavioral of Square_Generator is
 	signal PHASE_DIFF : std_logic_vector(7 downto 0):= "00000000";
 	signal PHASE_VALUE: std_logic_vector(7 downto 0):= "00000000";
 begin
-
-	process(CLOCK)
-	begin
-		if(CLOCK'event and CLOCK = '1' and CLOCK_ENABLE = '1') then
-			PHASE_DIFF <= std_logic_vector(unsigned(PHASE) - unsigned(PHASE_VALUE));
-			PHASE_VALUE <= PHASE;
-		end if;
-	end process;
 	
 	
 	process(CLOCK,RESET)
@@ -59,6 +51,9 @@ begin
 			COUNT<=x"00";
 			OUTPUT<=x"00";
 		elsif(CLOCK'event and CLOCK ='1' and CLOCK_ENABLE = '1') then
+			PHASE_DIFF <= std_logic_vector(unsigned(PHASE) - unsigned(PHASE_VALUE));
+			PHASE_VALUE <= PHASE;
+
 			COUNT <= COUNT + unsigned(HARMONIC) + unsigned(PHASE_DIFF);
 			if (COUNT>127) then
 				OUTPUT<=x"FF";

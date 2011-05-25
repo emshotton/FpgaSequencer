@@ -1,3 +1,4 @@
+vhdl work "ipcore_dir/multiplier.vhd"
 vhdl work "Triangle_Ram.vhd"
 vhdl work "Sine_Ram.vhd"
 vhdl work "Triangle_Generator.vhd"

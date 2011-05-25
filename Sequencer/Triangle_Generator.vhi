@@ -1,5 +1,5 @@
 
--- VHDL Instantiation Created from source file Triangle_Generator.vhd -- 20:26:00 05/23/2011
+-- VHDL Instantiation Created from source file Triangle_Generator.vhd -- 16:00:35 05/25/2011
 --
 -- Notes: 
 -- 1) This instantiation template has been automatically generated using types
@@ -9,6 +9,7 @@
 	COMPONENT Triangle_Generator
 	PORT(
 		HARMONIC : IN std_logic_vector(3 downto 0);
+		PHASE : IN std_logic_vector(7 downto 0);
 		CLOCK : IN std_logic;
 		CLOCK_ENABLE : IN std_logic;
 		RESET : IN std_logic;          
@@ -18,6 +19,7 @@
 
 	Inst_Triangle_Generator: Triangle_Generator PORT MAP(
 		HARMONIC => ,
+		PHASE => ,
 		CLOCK => ,
 		CLOCK_ENABLE => ,
 		RESET => ,

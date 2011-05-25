@@ -37,7 +37,7 @@ end Clock_Divider;
 
 architecture Behavioral of Clock_Divider is
 
-	signal COUNTER : std_logic_vector(7 downto 0);
+	signal COUNTER : std_logic_vector(7 downto 0) := x"00";
 
 begin
 
@@ -47,7 +47,7 @@ begin
 		if(CLOCK'event and CLOCK ='1') then
 			COUNTER <= std_logic_vector(unsigned(COUNTER)+1);
 			OUTPUT <= '0';
-			if (COUNTER = DIVISOR) then
+			if (unsigned(COUNTER) = unsigned(DIVISOR)) then
 				COUNTER <= x"00";
 				OUTPUT <= '1';
 			end if;

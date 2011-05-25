@@ -48,7 +48,7 @@ architecture Behavioral of Triangle_Generator is
 		);
 	END COMPONENT;
 	
-	signal POSITION_COUNTER : std_logic_vector(7 downto 0);
+	signal POSITION_COUNTER : std_logic_vector(7 downto 0) := "00000000";
 	signal PHASE_DIFF : std_logic_vector(7 downto 0):= "00000000";
 	signal PHASE_VALUE: std_logic_vector(7 downto 0):= "00000000";
 	
