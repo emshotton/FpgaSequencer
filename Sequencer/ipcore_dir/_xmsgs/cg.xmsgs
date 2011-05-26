@@ -5,7 +5,13 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="info" file="sim" num="927" delta="new" >Generating component instance &apos;<arg fmt="%s" index="1">test_ram</arg>&apos; of &apos;<arg fmt="%s" index="2">xilinx.com:ip:xfft:7.1</arg>&apos; from &apos;<arg fmt="%s" index="3">/opt/Xilinx/13.1/ISE_DS/ISE/coregen/ip/xilinx/dsp/com/xilinx/ip/xfft_v7_1/component.xml</arg>&apos;.
+<msg type="info" file="sim" num="927" delta="new" >Generating component instance &apos;<arg fmt="%s" index="1">dcm_42Mhz</arg>&apos; of &apos;<arg fmt="%s" index="2">xilinx.com:ip:dcm_sp:13.1</arg>&apos; from &apos;<arg fmt="%s" index="3">/opt/Xilinx/13.1/ISE_DS/ISE/bin/lin64/arwz</arg>&apos;.
+</msg>
+
+<msg type="warning" file="sim" num="948" delta="new" >The chosen IP does not support an ASY schematic symbol.
+</msg>
+
+<msg type="warning" file="sim" num="0" delta="new" ><arg fmt="%s" index="1">The chosen IP does not support an SYM schematic symbol.</arg>
 </msg>
 
 </messages>

@@ -43,8 +43,7 @@ ARCHITECTURE behavior OF Top_Level_tb IS
     PORT(
          clk : IN  std_logic;
          SOUND_OUT : OUT  std_logic_vector(7 downto 0);
-			TICK : OUT std_logic
-			
+			TICK: OUT std_logic
         );
     END COMPONENT;
     
@@ -56,7 +55,7 @@ ARCHITECTURE behavior OF Top_Level_tb IS
    signal SOUND_OUT : std_logic_vector(7 downto 0);
 	signal TICK : std_logic;
    -- Clock period definitions
-   constant clk_period : time := 10 ns;
+   constant clk_period : time := 31 ns;
  
 BEGIN
  

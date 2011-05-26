@@ -5,8 +5,5 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="Simulator" num="732" delta="unknown" >Ignoring Verilog file(s) <arg fmt="%s" index="1"> /opt/Xilinx/13.1/ISE_DS/ISE//verilog/src/glbl.v</arg>
-</msg>
-
 </messages>
 

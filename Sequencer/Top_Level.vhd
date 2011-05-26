@@ -32,12 +32,21 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity Top_Level is
     Port ( clk : in  STD_LOGIC;
            SOUND_OUT : out  STD_LOGIC_VECTOR (7 downto 0)
-			  --TICK : out std_logic
 			  );
 end Top_Level;
 
 architecture Behavioral of Top_Level is
 	
+	COMPONENT dcm_42Mhz
+	PORT(
+		CLKIN_IN : IN std_logic;
+		RST_IN : IN std_logic;          
+		CLKFX_OUT : OUT std_logic;
+		CLKIN_IBUFG_OUT : OUT std_logic;
+		CLK0_OUT : OUT std_logic;
+		LOCKED_OUT : OUT std_logic
+		);
+	END COMPONENT;
 	
 	COMPONENT Tone_Mixer
 	PORT(
@@ -120,18 +129,16 @@ architecture Behavioral of Top_Level is
 	signal SAW : std_logic_vector(7 downto 0);
 	signal TRIANGLE : std_logic_vector(7 downto 0);
 	signal MODULATOR : std_logic_vector(7 downto 0);
+	signal clk_42Mhz : std_logic;
 	
 begin
+	
+	Inst_dcm_42Mhz: dcm_42Mhz PORT MAP(
+		CLKIN_IN => clk,
+		RST_IN => '0',
+		CLKFX_OUT => clk_42Mhz
+	);
 
-	process(clk)
-	begin
-		if (clk'event and clk ='1') then
-			SOUND_OUT <= SOUND;
-			--TICK <= CLOCK_ENABLE;
-		end if;
-	end process;
-	
-	
 	Inst_Tone_Mixer: Tone_Mixer PORT MAP(
 		IN_A => SINE,
 		IN_B => SAW,
@@ -141,24 +148,24 @@ begin
 		LEVEL_B => x"60",
 		LEVEL_C => x"FF",
 		LEVEL_D => x"FF",
-		MODULATOR_A => MODULATOR,
+		MODULATOR_A => x"FF",--MODULATOR,
 		MODULATOR_B => x"FF",
-		OUTPUT => SOUND,
+		OUTPUT => SOUND_OUT,
 		ENABLED_INPUTS => "0011",
-		CLOCK => clk
+		CLOCK => clk_42Mhz
 	);
 
 	Inst_Clock_Divider: Clock_Divider PORT MAP(
-		CLOCK => clk,
+		CLOCK => clk_42Mhz,
 		CLOCK_ENABLE => '1',
-		DIVISOR => x"04",
+		DIVISOR => x"42",
 		OUTPUT => CLOCK_ENABLE
 	);
 	
 	Modulator_Sine_Generator: Sine_Generator PORT MAP(
 		HARMONIC => x"1",
 		PHASE => x"00",
-		CLOCK => clk,
+		CLOCK => clk_42Mhz,
 		CLOCK_ENABLE => MODULATOR_ENABLE,
 		RESET => '0',
 		OUTPUT => MODULATOR
@@ -166,7 +173,7 @@ begin
 	
 
 	Modulator_Clock_Divider: Clock_Divider PORT MAP(
-		CLOCK => clk,
+		CLOCK => clk_42Mhz,
 		CLOCK_ENABLE => CLOCK_ENABLE,
 		DIVISOR => x"F0",
 		OUTPUT => MODULATOR_ENABLE
@@ -175,7 +182,7 @@ begin
 	Inst_Sine_Generator: Sine_Generator PORT MAP(
 		HARMONIC => x"1",
 		PHASE => x"00",
-		CLOCK => clk,
+		CLOCK => clk_42Mhz,
 		CLOCK_ENABLE => CLOCK_ENABLE,
 		RESET => '0',
 		OUTPUT => SINE
@@ -184,7 +191,7 @@ begin
 	Inst_Square_Generator: Square_Generator PORT MAP(
 		HARMONIC => x"1",
 		PHASE => x"00",
-		CLOCK => clk,
+		CLOCK => clk_42Mhz,
 		CLOCK_ENABLE => CLOCK_ENABLE,
 		RESET => '0',
 		OUTPUT => SQUARE
@@ -193,7 +200,7 @@ begin
 	Inst_Sawtooth_Generator: Sawtooth_Generator PORT MAP(
 		HARMONIC => x"3",
 		PHASE => x"80",
-		CLOCK => clk,
+		CLOCK => clk_42Mhz,
 		CLOCK_ENABLE => CLOCK_ENABLE,
 		RESET => '0',
 		OUTPUT => SAW
@@ -202,7 +209,7 @@ begin
 	Inst_Triangle_Generator: Triangle_Generator PORT MAP(
 		HARMONIC => x"1",
 		PHASE => X"00",
-		CLOCK => clk,
+		CLOCK => clk_42Mhz,
 		CLOCK_ENABLE => CLOCK_ENABLE,
 		RESET => '0',
 		OUTPUT => TRIANGLE

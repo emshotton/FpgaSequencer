@@ -1,5 +1,5 @@
 
--- VHDL Instantiation Created from source file dcm.vhd -- 12:03:54 05/26/2011
+-- VHDL Instantiation Created from source file dcm.vhd -- 14:36:21 05/26/2011
 --
 -- Notes: 
 -- 1) This instantiation template has been automatically generated using types

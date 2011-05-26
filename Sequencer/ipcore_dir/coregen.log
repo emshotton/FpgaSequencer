@@ -1,11 +1,27 @@
 CoreGen has not been configured with any user repositories.
 CoreGen has been configured with the following Xilinx repositories:
  - '/opt/Xilinx/13.1/ISE_DS/ISE/coregen/' []
-INFO:sim:927 - Generating component instance 'test_ram' of
-   'xilinx.com:ip:xfft:7.1' from
-   '/opt/Xilinx/13.1/ISE_DS/ISE/coregen/ip/xilinx/dsp/com/xilinx/ip/xfft_v7_1/co
-   mponent.xml'.
+INFO:sim:927 - Generating component instance 'dcm_42Mhz' of
+   'xilinx.com:ip:dcm_sp:13.1' from
+   '/opt/Xilinx/13.1/ISE_DS/ISE/bin/lin64/arwz'.
+Customizing IP...
+Generated Architecture Wizard:
+/home/matt/Programming/VHDL/FpgaSequencer/Sequencer/ipcore_dir/./dcm_42Mhz.xaw
+Architecture Wizard completed successfully.
+Finished Customizing.
+Resolving generic values...
+Finished resolving generic values.
+Generating ASY schematic symbol...
+WARNING:sim:948 - The chosen IP does not support an ASY schematic symbol.
+Finished generating ASY schematic symbol.
 Executing Tcl generator...
-Cancelled executing Tcl generator.
+WARNING:sim - The chosen IP does not support an SYM schematic symbol.
+Finished executing Tcl generator.
+Generating FLIST file...
+Finished FLIST file generation.
+Preparing output directory...
+Finished preparing output directory.
+Moving files to output directory...
+Finished moving files to output directory
 Wrote file for project
-'/home/matt/Programming/VHDL/FpgaSequencer/Sequencer/ipcore_dir/test_ram.cgp'.
+'/home/matt/Programming/VHDL/FpgaSequencer/Sequencer/ipcore_dir/dcm_42Mhz.cgp'.

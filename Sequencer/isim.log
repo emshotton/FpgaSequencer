@@ -1,5 +1,5 @@
 ISim log file
-Running: /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Tone_Mixer_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Tone_Mixer_isim_beh.wdb 
+Running: /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Top_Level_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Top_Level_isim_beh.wdb 
 ISim O.40d (signature 0xdc0cde0)
 WARNING: A WEBPACK license was found.
 WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
@@ -11,5 +11,5 @@ Time resolution is 1 ps
 # run 100000 ns
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
-at 0 ps, Instance /tone_mixer/your_instance_name/U0/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 0 ps, Instance /top_level/Inst_Tone_Mixer/your_instance_name/U0/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
 # exit 0
