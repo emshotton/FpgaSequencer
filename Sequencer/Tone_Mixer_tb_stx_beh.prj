@@ -1,2 +1,4 @@
+vhdl isim_temp "ipcore_dir/multiplier.vhd"
 vhdl isim_temp "Tone_Mixer.vhd"
 vhdl isim_temp "Tone_Mixer_tb.vhd"
+verilog isim_temp "/opt/Xilinx/13.1/ISE_DS/ISE//verilog/src/glbl.v"

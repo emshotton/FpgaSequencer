@@ -38,6 +38,7 @@ end Top_Level;
 
 architecture Behavioral of Top_Level is
 	
+	
 	COMPONENT Tone_Mixer
 	PORT(
 		IN_A : IN std_logic_vector(7 downto 0);
@@ -48,7 +49,8 @@ architecture Behavioral of Top_Level is
 		LEVEL_B : IN std_logic_vector(7 downto 0);
 		LEVEL_C : IN std_logic_vector(7 downto 0);
 		LEVEL_D : IN std_logic_vector(7 downto 0);
-		MODULATOR : IN std_logic_vector(7 downto 0);
+		MODULATOR_A : IN std_logic_vector(7 downto 0);
+		MODULATOR_B : IN std_logic_vector(7 downto 0);
 		ENABLED_INPUTS : IN std_logic_vector(3 downto 0);
 		CLOCK : IN std_logic;          
 		OUTPUT : OUT std_logic_vector(7 downto 0)
@@ -139,7 +141,8 @@ begin
 		LEVEL_B => x"60",
 		LEVEL_C => x"FF",
 		LEVEL_D => x"FF",
-		MODULATOR => MODULATOR,
+		MODULATOR_A => MODULATOR,
+		MODULATOR_B => x"FF",
 		OUTPUT => SOUND,
 		ENABLED_INPUTS => "0011",
 		CLOCK => clk

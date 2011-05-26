@@ -5,7 +5,7 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="info" file="sim" num="927" delta="old" >Generating component instance &apos;<arg fmt="%s" index="1">multiplier</arg>&apos; of &apos;<arg fmt="%s" index="2">xilinx.com:ip:mult_gen:11.2</arg>&apos; from &apos;<arg fmt="%s" index="3">/opt/Xilinx/13.1/ISE_DS/ISE/coregen/ip/xilinx/dsp/com/xilinx/ip/mult_gen_v11_2/component.xml</arg>&apos;.
+<msg type="info" file="sim" num="927" delta="new" >Generating component instance &apos;<arg fmt="%s" index="1">test_ram</arg>&apos; of &apos;<arg fmt="%s" index="2">xilinx.com:ip:xfft:7.1</arg>&apos; from &apos;<arg fmt="%s" index="3">/opt/Xilinx/13.1/ISE_DS/ISE/coregen/ip/xilinx/dsp/com/xilinx/ip/xfft_v7_1/component.xml</arg>&apos;.
 </msg>
 
 </messages>
