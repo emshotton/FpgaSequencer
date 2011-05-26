@@ -1,5 +1,5 @@
 
--- VHDL Instantiation Created from source file Clock_Divider.vhd -- 15:46:15 05/25/2011
+-- VHDL Instantiation Created from source file Clock_Divider.vhd -- 17:14:33 05/26/2011
 --
 -- Notes: 
 -- 1) This instantiation template has been automatically generated using types
@@ -9,6 +9,7 @@
 	COMPONENT Clock_Divider
 	PORT(
 		CLOCK : IN std_logic;
+		CLOCK_ENABLE : IN std_logic;
 		DIVISOR : IN std_logic_vector(7 downto 0);          
 		OUTPUT : OUT std_logic
 		);
@@ -16,6 +17,7 @@
 
 	Inst_Clock_Divider: Clock_Divider PORT MAP(
 		CLOCK => ,
+		CLOCK_ENABLE => ,
 		DIVISOR => ,
 		OUTPUT => 
 	);

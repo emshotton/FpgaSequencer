@@ -1,2 +1,3 @@
 vhdtdtfi -prj Sequencer -o /home/matt/Programming/VHDL/sequencer/Sequencer/Clock_Divider.vhi -module Clock_Divider -template /opt/Xilinx/13.1/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work Clock_Divider.vhd 
 vhdtdtfi -prj Sequencer -o /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Clock_Divider.vhi -module Clock_Divider -template /opt/Xilinx/13.1/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work Clock_Divider.vhd 
+vhdtdtfi -prj Sequencer -o /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Clock_Divider.vhi -module Clock_Divider -template /opt/Xilinx/13.1/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work Clock_Divider.vhd 

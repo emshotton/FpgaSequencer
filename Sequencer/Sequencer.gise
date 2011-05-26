@@ -151,6 +151,9 @@
     <transform xil_pn:end_ts="1306418885" xil_pn:in_ck="3284986057202476362" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1306418885">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="InputAdded"/>
+      <status xil_pn:value="InputChanged"/>
       <outfile xil_pn:name="Clock_Divider.vhd"/>
       <outfile xil_pn:name="Clock_Divider_tb.vhd"/>
       <outfile xil_pn:name="Sawtooth_Generator.vhd"/>
@@ -188,6 +191,7 @@
     <transform xil_pn:end_ts="1306418885" xil_pn:in_ck="4315579368801768742" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1306418885">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="Clock_Divider.vhd"/>
       <outfile xil_pn:name="Clock_Divider_tb.vhd"/>
       <outfile xil_pn:name="Sawtooth_Generator.vhd"/>
@@ -211,6 +215,8 @@
     <transform xil_pn:end_ts="1306418892" xil_pn:in_ck="-1011972337825173428" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="3347806626751917231" xil_pn:start_ts="1306418885">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForProperties"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="Top_Level_beh.prj"/>
@@ -223,6 +229,8 @@
     <transform xil_pn:end_ts="1306420002" xil_pn:in_ck="-3780736293763534955" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-4366854044397131812" xil_pn:start_ts="1306420002">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForProperties"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="Top_Level_isim_beh.wdb"/>
@@ -265,6 +273,7 @@
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="InputAdded"/>
       <status xil_pn:value="InputChanged"/>
       <outfile xil_pn:name="Sine_Generator.ngr"/>
       <outfile xil_pn:name="Top_Level.lso"/>
