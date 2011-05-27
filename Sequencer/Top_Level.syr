@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.07 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.07 secs
  
 --> 
 Reading design: Top_Level.prj
@@ -114,15 +114,16 @@ Compiling vhdl file "/home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Triangl
 Architecture behavioral of Entity triangle_ram is up to date.
 Compiling vhdl file "/home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Sine_Ram.vhd" in Library work.
 Architecture behavioral of Entity sine_ram is up to date.
+Compiling vhdl file "/home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Clock_Divider.vhd" in Library work.
+Architecture behavioral of Entity clock_divider is up to date.
 Compiling vhdl file "/home/matt/Programming/VHDL/FpgaSequencer/Sequencer/ipcore_dir/multiplier.vhd" in Library work.
 Architecture multiplier_a of Entity multiplier is up to date.
 Compiling vhdl file "/home/matt/Programming/VHDL/FpgaSequencer/Sequencer/dcm_42Mhz.vhd" in Library work.
-Entity <dcm_42Mhz> compiled.
-Entity <dcm_42Mhz> (Architecture <BEHAVIORAL>) compiled.
+Architecture behavioral of Entity dcm_42mhz is up to date.
 Compiling vhdl file "/home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Tone_Mixer.vhd" in Library work.
 Architecture behavioral of Entity tone_mixer is up to date.
-Compiling vhdl file "/home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Clock_Divider.vhd" in Library work.
-Architecture behavioral of Entity clock_divider is up to date.
+Compiling vhdl file "/home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Envelope_Generator.vhd" in Library work.
+Architecture behavioral of Entity envelope_generator is up to date.
 Compiling vhdl file "/home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Sine_Generator.vhd" in Library work.
 Architecture behavioral of Entity sine_generator is up to date.
 Compiling vhdl file "/home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Square_Generator.vhd" in Library work.
@@ -140,11 +141,13 @@ Entity <top_level> (Architecture <behavioral>) compiled.
 =========================================================================
 Analyzing hierarchy for entity <Top_Level> in library <work> (architecture <behavioral>).
 
-Analyzing hierarchy for entity <dcm_42Mhz> in library <work> (architecture <BEHAVIORAL>).
+Analyzing hierarchy for entity <dcm_42Mhz> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <Clock_Divider> in library <work> (architecture <behavioral>).
 
 Analyzing hierarchy for entity <Tone_Mixer> in library <work> (architecture <behavioral>).
 
-Analyzing hierarchy for entity <Clock_Divider> in library <work> (architecture <behavioral>).
+Analyzing hierarchy for entity <Envelope_Generator> in library <work> (architecture <behavioral>).
 
 Analyzing hierarchy for entity <Sine_Generator> in library <work> (architecture <behavioral>).
 
@@ -153,6 +156,8 @@ Analyzing hierarchy for entity <Square_Generator> in library <work> (architectur
 Analyzing hierarchy for entity <Sawtooth_Generator> in library <work> (architecture <behavioral>).
 
 Analyzing hierarchy for entity <Triangle_Generator> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <Clock_Divider> in library <work> (architecture <behavioral>).
 
 Analyzing hierarchy for entity <sine_ram> in library <work> (architecture <behavioral>).
 
@@ -163,12 +168,12 @@ Analyzing hierarchy for entity <Triangle_Ram> in library <work> (architecture <b
 *                            HDL Analysis                               *
 =========================================================================
 Analyzing Entity <Top_Level> in library <work> (Architecture <behavioral>).
-WARNING:Xst:753 - "/home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Top_Level.vhd" line 137: Unconnected output port 'CLKFX_OUT' of component 'dcm_42Mhz'.
-WARNING:Xst:753 - "/home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Top_Level.vhd" line 137: Unconnected output port 'CLKIN_IBUFG_OUT' of component 'dcm_42Mhz'.
-WARNING:Xst:753 - "/home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Top_Level.vhd" line 137: Unconnected output port 'LOCKED_OUT' of component 'dcm_42Mhz'.
+WARNING:Xst:753 - "/home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Top_Level.vhd" line 153: Unconnected output port 'CLKIN_IBUFG_OUT' of component 'dcm_42Mhz'.
+WARNING:Xst:753 - "/home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Top_Level.vhd" line 153: Unconnected output port 'CLK0_OUT' of component 'dcm_42Mhz'.
+WARNING:Xst:753 - "/home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Top_Level.vhd" line 153: Unconnected output port 'LOCKED_OUT' of component 'dcm_42Mhz'.
 Entity <Top_Level> analyzed. Unit <Top_Level> generated.
 
-Analyzing Entity <dcm_42Mhz> in library <work> (Architecture <BEHAVIORAL>).
+Analyzing Entity <dcm_42Mhz> in library <work> (Architecture <behavioral>).
     Set user-defined property "CAPACITANCE =  DONT_CARE" for instance <CLKIN_IBUFG_INST> in unit <dcm_42Mhz>.
     Set user-defined property "IBUF_DELAY_VALUE =  0" for instance <CLKIN_IBUFG_INST> in unit <dcm_42Mhz>.
     Set user-defined property "IBUF_LOW_PWR =  TRUE" for instance <CLKIN_IBUFG_INST> in unit <dcm_42Mhz>.
@@ -190,9 +195,12 @@ Analyzing Entity <dcm_42Mhz> in library <work> (Architecture <BEHAVIORAL>).
     Set user-defined property "STARTUP_WAIT =  FALSE" for instance <DCM_SP_INST> in unit <dcm_42Mhz>.
 Entity <dcm_42Mhz> analyzed. Unit <dcm_42Mhz> generated.
 
+Analyzing Entity <Clock_Divider> in library <work> (Architecture <behavioral>).
+Entity <Clock_Divider> analyzed. Unit <Clock_Divider> generated.
+
 Analyzing Entity <Tone_Mixer> in library <work> (Architecture <behavioral>).
-WARNING:Xst:2211 - "/home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Tone_Mixer.vhd" line 99: Instantiating black box module <multiplier>.
-INFO:Xst:1561 - "/home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Tone_Mixer.vhd" line 246: Mux is complete : default of case is discarded
+WARNING:Xst:2211 - "/home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Tone_Mixer.vhd" line 103: Instantiating black box module <multiplier>.
+INFO:Xst:1561 - "/home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Tone_Mixer.vhd" line 258: Mux is complete : default of case is discarded
 INFO:Xst:2679 - Register <POST_A<15>> in unit <Tone_Mixer> has a constant value of 0 during circuit operation. The register is replaced by logic.
 INFO:Xst:2679 - Register <POST_A<14>> in unit <Tone_Mixer> has a constant value of 0 during circuit operation. The register is replaced by logic.
 INFO:Xst:2679 - Register <POST_A<13>> in unit <Tone_Mixer> has a constant value of 0 during circuit operation. The register is replaced by logic.
@@ -227,8 +235,8 @@ INFO:Xst:2679 - Register <POST_D<9>> in unit <Tone_Mixer> has a constant value o
 INFO:Xst:2679 - Register <POST_D<8>> in unit <Tone_Mixer> has a constant value of 0 during circuit operation. The register is replaced by logic.
 Entity <Tone_Mixer> analyzed. Unit <Tone_Mixer> generated.
 
-Analyzing Entity <Clock_Divider> in library <work> (Architecture <behavioral>).
-Entity <Clock_Divider> analyzed. Unit <Clock_Divider> generated.
+Analyzing Entity <Envelope_Generator> in library <work> (Architecture <behavioral>).
+Entity <Envelope_Generator> analyzed. Unit <Envelope_Generator> generated.
 
 Analyzing Entity <Sine_Generator> in library <work> (Architecture <behavioral>).
 Entity <Sine_Generator> analyzed. Unit <Sine_Generator> generated.
@@ -254,6 +262,12 @@ Entity <Triangle_Ram> analyzed. Unit <Triangle_Ram> generated.
 =========================================================================
 
 Performing bidirectional port resolution...
+INFO:Xst:2679 - Register <MOD_B_LEVEL> in unit <Tone_Mixer> has a constant value of 11111111 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <MOD_A_LEVEL> in unit <Tone_Mixer> has a constant value of 11111111 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <MULT_B_MIX> in unit <Tone_Mixer> has a constant value of 11111111 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <PRE_B> in unit <Tone_Mixer> has a constant value of 00000000 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <PRE_C> in unit <Tone_Mixer> has a constant value of 00000000 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <PRE_D> in unit <Tone_Mixer> has a constant value of 00000000 during circuit operation. The register is replaced by logic.
 
 Synthesizing Unit <Clock_Divider>.
     Related source file is "/home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Clock_Divider.vhd".
@@ -327,6 +341,7 @@ Unit <dcm_42Mhz> synthesized.
 
 Synthesizing Unit <Tone_Mixer>.
     Related source file is "/home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Tone_Mixer.vhd".
+WARNING:Xst:647 - Input <MODULATOR_B_LEVEL> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:1780 - Signal <SELECT_SIGNAL> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1780 - Signal <PRE_OUT> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1780 - Signal <NUM_SIGNALS> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
@@ -334,7 +349,6 @@ WARNING:Xst:1780 - Signal <MULT_OUT_MIX> is never used or assigned. This unconne
 WARNING:Xst:646 - Signal <MULT_OUT<7:0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1780 - Signal <MOD_B_OUT> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1780 - Signal <MOD_A_OUT> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-    Register <PRE_D> equivalent to <PRE_C> has been removed
     Using one-hot encoding for signal <MULT_SELECT>.
     Found 8-bit register for signal <OUTPUT>.
     Found 8-bit register for signal <MOD_A_A>.
@@ -343,23 +357,62 @@ WARNING:Xst:1780 - Signal <MOD_A_OUT> is never used or assigned. This unconnecte
     Found 8-bit register for signal <MOD_B_B>.
     Found 16-bit register for signal <MULT_A>.
     Found 16-bit register for signal <MULT_A_MIX>.
-    Found 16-bit adder for signal <MULT_A_MIX$add0000> created at line 173.
-    Found 16-bit adder for signal <MULT_A_MIX$addsub0000> created at line 173.
-    Found 16-bit adder for signal <MULT_A_MIX$addsub0001> created at line 173.
+    Found 16-bit adder for signal <MULT_A_MIX$add0000> created at line 185.
+    Found 16-bit adder for signal <MULT_A_MIX$addsub0000> created at line 185.
+    Found 16-bit adder for signal <MULT_A_MIX$addsub0001> created at line 185.
     Found 8-bit register for signal <MULT_B>.
-    Found 8-bit register for signal <MULT_B_MIX>.
     Found 26-bit register for signal <MULT_SELECT>.
     Found 8-bit register for signal <POST_A<7:0>>.
     Found 8-bit register for signal <POST_B<7:0>>.
     Found 8-bit register for signal <POST_C<7:0>>.
     Found 8-bit register for signal <POST_D<7:0>>.
     Found 8-bit register for signal <PRE_A>.
-    Found 8-bit register for signal <PRE_B>.
-    Found 8-bit register for signal <PRE_C>.
     Summary:
-	inferred 170 D-type flip-flop(s).
+	inferred 146 D-type flip-flop(s).
 	inferred   3 Adder/Subtractor(s).
 Unit <Tone_Mixer> synthesized.
+
+
+Synthesizing Unit <Envelope_Generator>.
+    Related source file is "/home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Envelope_Generator.vhd".
+    Register <S> equivalent to <A> has been removed
+    Register <R> equivalent to <D> has been removed
+    Found finite state machine <FSM_0> for signal <ENVELOPE_POSITION>.
+    -----------------------------------------------------------------------
+    | States             | 5                                              |
+    | Transitions        | 12                                             |
+    | Inputs             | 7                                              |
+    | Outputs            | 6                                              |
+    | Clock              | CLOCK                     (rising_edge)        |
+    | Clock enable       | CLOCK_ENABLE              (positive)           |
+    | Power Up State     | 0000                                           |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 8-bit register for signal <OUTPUT>.
+    Found 8-bit register for signal <A>.
+    Found 8-bit register for signal <A_COUNTER>.
+    Found 8-bit adder for signal <A_COUNTER$addsub0000> created at line 150.
+    Found 18-bit up counter for signal <COUNTER>.
+    Found 8-bit register for signal <D>.
+    Found 8-bit register for signal <D_COUNTER>.
+    Found 8-bit subtractor for signal <D_COUNTER$addsub0000> created at line 159.
+    Found 8-bit comparator less for signal <ENVELOPE_POSITION$cmp_lt0000> created at line 160.
+    Found 18-bit comparator less for signal <ENVELOPE_POSITION$cmp_lt0001> created at line 166.
+    Found 8-bit register for signal <R_COUNTER>.
+    Found 8-bit comparator less for signal <R_COUNTER$cmp_lt0000> created at line 113.
+    Found 8-bit addsub for signal <R_COUNTER$share0000> created at line 128.
+    Found 18-bit register for signal <S_END>.
+    Found 18-bit adder for signal <S_END$addsub0000>.
+    Found 8-bit comparator equal for signal <S_END$cmp_eq0000> created at line 114.
+    Found 1-bit register for signal <S_END_SET>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   1 Counter(s).
+	inferred  67 D-type flip-flop(s).
+	inferred   4 Adder/Subtractor(s).
+	inferred   4 Comparator(s).
+Unit <Envelope_Generator> synthesized.
 
 
 Synthesizing Unit <Sine_Generator>.
@@ -393,10 +446,10 @@ Unit <Triangle_Generator> synthesized.
 
 Synthesizing Unit <Top_Level>.
     Related source file is "/home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Top_Level.vhd".
-WARNING:Xst:1306 - Output <SOUND_OUT> is never assigned.
-WARNING:Xst:646 - Signal <SOUND> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <SOUND> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 Unit <Top_Level> synthesized.
 
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
 
 =========================================================================
 HDL Synthesis Report
@@ -404,22 +457,28 @@ HDL Synthesis Report
 Macro Statistics
 # ROMs                                                 : 3
  256x8-bit ROM                                         : 3
-# Adders/Subtractors                                   : 13
+# Adders/Subtractors                                   : 17
  16-bit adder                                          : 3
- 8-bit adder                                           : 8
- 8-bit subtractor                                      : 2
-# Counters                                             : 2
- 8-bit up counter                                      : 2
+ 18-bit adder                                          : 1
+ 8-bit adder                                           : 9
+ 8-bit addsub                                          : 1
+ 8-bit subtractor                                      : 3
+# Counters                                             : 7
+ 18-bit up counter                                     : 1
+ 8-bit up counter                                      : 6
 # Accumulators                                         : 5
  8-bit up accumulator                                  : 5
-# Registers                                            : 76
- 1-bit register                                        : 50
+# Registers                                            : 85
+ 1-bit register                                        : 55
  16-bit register                                       : 1
+ 18-bit register                                       : 1
  26-bit register                                       : 1
- 8-bit register                                        : 24
-# Comparators                                          : 3
- 8-bit comparator equal                                : 2
+ 8-bit register                                        : 27
+# Comparators                                          : 11
+ 18-bit comparator less                                : 1
+ 8-bit comparator equal                                : 7
  8-bit comparator greater                              : 1
+ 8-bit comparator less                                 : 2
 
 =========================================================================
 
@@ -427,19 +486,27 @@ Macro Statistics
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <Inst_Envelope_Generator/ENVELOPE_POSITION/FSM> on signal <ENVELOPE_POSITION[1:3]> with gray encoding.
+-------------------
+ State | Encoding
+-------------------
+ 0000  | 000
+ 0001  | 001
+ 0010  | 011
+ 0011  | 010
+ 0100  | 110
+-------------------
 Reading core <ipcore_dir/multiplier.ngc>.
 Loading core <multiplier> for timing and area information for instance <your_instance_name>.
 WARNING:Xst:1290 - Hierarchical block <Inst_Square_Generator> is unconnected in block <Top_Level>.
    It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <Inst_Sawtooth_Generator> is unconnected in block <Top_Level>.
+   It will be removed from the design.
 WARNING:Xst:1290 - Hierarchical block <Inst_Triangle_Generator> is unconnected in block <Top_Level>.
    It will be removed from the design.
-INFO:Xst:2261 - The FF/Latch <MOD_B_A_0> in Unit <Inst_Tone_Mixer> is equivalent to the following 7 FFs/Latches, which will be removed : <MOD_B_A_1> <MOD_B_A_2> <MOD_B_A_3> <MOD_B_A_4> <MOD_B_A_5> <MOD_B_A_6> <MOD_B_A_7> 
-INFO:Xst:2261 - The FF/Latch <PRE_C_0> in Unit <Inst_Tone_Mixer> is equivalent to the following 7 FFs/Latches, which will be removed : <PRE_C_1> <PRE_C_2> <PRE_C_3> <PRE_C_4> <PRE_C_5> <PRE_C_6> <PRE_C_7> 
-INFO:Xst:2261 - The FF/Latch <MULT_B_MIX_0> in Unit <Inst_Tone_Mixer> is equivalent to the following 6 FFs/Latches, which will be removed : <MULT_B_MIX_1> <MULT_B_MIX_2> <MULT_B_MIX_3> <MULT_B_MIX_4> <MULT_B_MIX_5> <MULT_B_MIX_6> 
-INFO:Xst:2261 - The FF/Latch <PHASE_VALUE_0> in Unit <Inst_Sawtooth_Generator> is equivalent to the following 6 FFs/Latches, which will be removed : <PHASE_VALUE_1> <PHASE_VALUE_2> <PHASE_VALUE_3> <PHASE_VALUE_4> <PHASE_VALUE_5> <PHASE_VALUE_6> 
-WARNING:Xst:1426 - The value init of the FF/Latch PHASE_VALUE_7 hinder the constant cleaning in the block Inst_Sawtooth_Generator.
-   You should achieve better results by setting this init to 1.
-WARNING:Xst:1293 - FF/Latch <PHASE_VALUE_0> has a constant value of 0 in block <Inst_Sawtooth_Generator>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <A_0> in Unit <Inst_Envelope_Generator> is equivalent to the following 6 FFs/Latches, which will be removed : <A_1> <A_2> <A_3> <A_4> <A_5> <A_7> 
+INFO:Xst:2261 - The FF/Latch <A_6> in Unit <Inst_Envelope_Generator> is equivalent to the following 8 FFs/Latches, which will be removed : <D_0> <D_1> <D_2> <D_3> <D_4> <D_5> <D_6> <D_7> 
 WARNING:Xst:1293 - FF/Latch <PHASE_VALUE_7> has a constant value of 0 in block <Inst_Sine_Generator>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <PHASE_VALUE_6> has a constant value of 0 in block <Inst_Sine_Generator>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <PHASE_VALUE_5> has a constant value of 0 in block <Inst_Sine_Generator>. This FF/Latch will be trimmed during the optimization process.
@@ -456,12 +523,10 @@ WARNING:Xst:1293 - FF/Latch <PHASE_VALUE_3> has a constant value of 0 in block <
 WARNING:Xst:1293 - FF/Latch <PHASE_VALUE_2> has a constant value of 0 in block <Modulator_Sine_Generator>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <PHASE_VALUE_1> has a constant value of 0 in block <Modulator_Sine_Generator>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <PHASE_VALUE_0> has a constant value of 0 in block <Modulator_Sine_Generator>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <PRE_C_0> (without init value) has a constant value of 0 in block <Inst_Tone_Mixer>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <MOD_B_A_0> (without init value) has a constant value of 1 in block <Inst_Tone_Mixer>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <MULT_B_MIX_7> (without init value) has a constant value of 1 in block <Inst_Tone_Mixer>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <MULT_B_MIX_0> (without init value) has a constant value of 0 in block <Inst_Tone_Mixer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <A_6> (without init value) has a constant value of 1 in block <Inst_Envelope_Generator>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <A_0> (without init value) has a constant value of 0 in block <Inst_Envelope_Generator>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:2677 - Node <MULT_SELECT_25> of sequential type is unconnected in block <Inst_Tone_Mixer>.
-WARNING:Xst:2404 -  FFs/Latches <PRE_C<7:0>> (without init value) have a constant value of 0 in block <Tone_Mixer>.
+WARNING:Xst:2404 -  FFs/Latches <A<7:7>> (without init value) have a constant value of 0 in block <Envelope_Generator>.
 
 Synthesizing (advanced) Unit <Triangle_Ram>.
 INFO:Xst:3044 - The ROM <Mrom__varindex0000> will be implemented as a read-only BLOCK RAM, absorbing the register: <OUTPUT_DATA>.
@@ -506,27 +571,34 @@ WARNING:Xst:2677 - Node <MULT_SELECT_25> of sequential type is unconnected in bl
 Advanced HDL Synthesis Report
 
 Macro Statistics
+# FSMs                                                 : 1
 # RAMs                                                 : 3
  256x8-bit single-port block RAM                       : 3
-# Adders/Subtractors                                   : 13
+# Adders/Subtractors                                   : 17
  16-bit adder                                          : 3
- 8-bit adder                                           : 8
- 8-bit subtractor                                      : 2
-# Counters                                             : 2
- 8-bit up counter                                      : 2
+ 18-bit adder                                          : 1
+ 8-bit adder                                           : 9
+ 8-bit addsub                                          : 1
+ 8-bit subtractor                                      : 3
+# Counters                                             : 7
+ 18-bit up counter                                     : 1
+ 8-bit up counter                                      : 6
 # Accumulators                                         : 5
  8-bit up accumulator                                  : 5
-# Registers                                            : 251
- Flip-Flops                                            : 251
-# Comparators                                          : 3
- 8-bit comparator equal                                : 2
+# Registers                                            : 305
+ Flip-Flops                                            : 305
+# Comparators                                          : 11
+ 18-bit comparator less                                : 1
+ 8-bit comparator equal                                : 7
  8-bit comparator greater                              : 1
+ 8-bit comparator less                                 : 2
 
 =========================================================================
 
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
+WARNING:Xst:1989 - Unit <Envelope_Generator>: instances <Decay_Divider>, <Release_Divider> of unit <Clock_Divider> are equivalent, second instance is removed
 WARNING:Xst:1293 - FF/Latch <PHASE_VALUE_0> has a constant value of 0 in block <Square_Generator>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <PHASE_VALUE_1> has a constant value of 0 in block <Square_Generator>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <PHASE_VALUE_2> has a constant value of 0 in block <Square_Generator>. This FF/Latch will be trimmed during the optimization process.
@@ -544,22 +616,21 @@ WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <PHASE_VALUE_3> has 
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <PHASE_VALUE_4> has a constant value of 0 in block <Sawtooth_Generator>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <PHASE_VALUE_5> has a constant value of 0 in block <Sawtooth_Generator>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <PHASE_VALUE_6> has a constant value of 0 in block <Sawtooth_Generator>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <MULT_B_MIX_0> (without init value) has a constant value of 0 in block <Tone_Mixer>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MULT_B_MIX_1> (without init value) has a constant value of 0 in block <Tone_Mixer>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MULT_B_MIX_2> (without init value) has a constant value of 0 in block <Tone_Mixer>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MULT_B_MIX_3> (without init value) has a constant value of 0 in block <Tone_Mixer>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MULT_B_MIX_4> (without init value) has a constant value of 0 in block <Tone_Mixer>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MULT_B_MIX_5> (without init value) has a constant value of 0 in block <Tone_Mixer>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MULT_B_MIX_6> (without init value) has a constant value of 0 in block <Tone_Mixer>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MULT_B_MIX_7> (without init value) has a constant value of 1 in block <Tone_Mixer>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MOD_B_A_0> (without init value) has a constant value of 1 in block <Tone_Mixer>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MOD_B_A_1> (without init value) has a constant value of 1 in block <Tone_Mixer>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MOD_B_A_2> (without init value) has a constant value of 1 in block <Tone_Mixer>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MOD_B_A_3> (without init value) has a constant value of 1 in block <Tone_Mixer>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MOD_B_A_4> (without init value) has a constant value of 1 in block <Tone_Mixer>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MOD_B_A_5> (without init value) has a constant value of 1 in block <Tone_Mixer>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MOD_B_A_6> (without init value) has a constant value of 1 in block <Tone_Mixer>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MOD_B_A_7> (without init value) has a constant value of 1 in block <Tone_Mixer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <D_0> (without init value) has a constant value of 1 in block <Envelope_Generator>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <D_1> (without init value) has a constant value of 1 in block <Envelope_Generator>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <D_2> (without init value) has a constant value of 1 in block <Envelope_Generator>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <D_3> (without init value) has a constant value of 1 in block <Envelope_Generator>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <D_4> (without init value) has a constant value of 1 in block <Envelope_Generator>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <D_5> (without init value) has a constant value of 1 in block <Envelope_Generator>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <D_6> (without init value) has a constant value of 1 in block <Envelope_Generator>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <D_7> (without init value) has a constant value of 1 in block <Envelope_Generator>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <A_0> (without init value) has a constant value of 0 in block <Envelope_Generator>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <A_1> (without init value) has a constant value of 0 in block <Envelope_Generator>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <A_2> (without init value) has a constant value of 0 in block <Envelope_Generator>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <A_3> (without init value) has a constant value of 0 in block <Envelope_Generator>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <A_4> (without init value) has a constant value of 0 in block <Envelope_Generator>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <A_5> (without init value) has a constant value of 0 in block <Envelope_Generator>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <A_6> (without init value) has a constant value of 1 in block <Envelope_Generator>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <PHASE_VALUE_0> has a constant value of 0 in block <Triangle_Generator>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <PHASE_VALUE_1> has a constant value of 0 in block <Triangle_Generator>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <PHASE_VALUE_2> has a constant value of 0 in block <Triangle_Generator>. This FF/Latch will be trimmed during the optimization process.
@@ -569,11 +640,6 @@ WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <PHASE_VALUE_5> has 
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <PHASE_VALUE_6> has a constant value of 0 in block <Triangle_Generator>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <PHASE_VALUE_7> has a constant value of 0 in block <Triangle_Generator>. This FF/Latch will be trimmed during the optimization process.
 INFO:Xst:2261 - The FF/Latch <OUTPUT_1> in Unit <Square_Generator> is equivalent to the following 6 FFs/Latches, which will be removed : <OUTPUT_2> <OUTPUT_3> <OUTPUT_4> <OUTPUT_5> <OUTPUT_6> <OUTPUT_7> 
-INFO:Xst:2261 - The FF/Latch <Modulator_Sine_Generator/PHASE_VALUE_7> in Unit <Top_Level> is equivalent to the following 7 FFs/Latches, which will be removed : <Modulator_Sine_Generator/PHASE_VALUE_6> <Modulator_Sine_Generator/PHASE_VALUE_5> <Modulator_Sine_Generator/PHASE_VALUE_4> <Modulator_Sine_Generator/PHASE_VALUE_3> <Modulator_Sine_Generator/PHASE_VALUE_2> <Modulator_Sine_Generator/PHASE_VALUE_1> <Modulator_Sine_Generator/PHASE_VALUE_0> 
-INFO:Xst:2261 - The FF/Latch <Inst_Sine_Generator/PHASE_VALUE_7> in Unit <Top_Level> is equivalent to the following 7 FFs/Latches, which will be removed : <Inst_Sine_Generator/PHASE_VALUE_6> <Inst_Sine_Generator/PHASE_VALUE_5> <Inst_Sine_Generator/PHASE_VALUE_4> <Inst_Sine_Generator/PHASE_VALUE_3> <Inst_Sine_Generator/PHASE_VALUE_2> <Inst_Sine_Generator/PHASE_VALUE_1> <Inst_Sine_Generator/PHASE_VALUE_0> 
-WARNING:Xst:1293 - FF/Latch <Inst_Sine_Generator/PHASE_VALUE_7> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Modulator_Sine_Generator/PHASE_VALUE_7> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
-INFO:Xst:2697 - Unit <Top_Level> : the RAMs <Inst_Sine_Generator/Inst_sine_ram/Mrom__varindex0000>, <Modulator_Sine_Generator/Inst_sine_ram/Mrom__varindex0000> are packed into the single block RAM <Inst_Sine_Generator/Inst_sine_ram/Mrom__varindex00001>
 WARNING:Xst:1710 - FF/Latch <MULT_A_11> (without init value) has a constant value of 0 in block <Tone_Mixer>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MULT_A_12> (without init value) has a constant value of 0 in block <Tone_Mixer>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MULT_A_13> (without init value) has a constant value of 0 in block <Tone_Mixer>. This FF/Latch will be trimmed during the optimization process.
@@ -584,51 +650,71 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MULT_A_MIX_12> (wit
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MULT_A_MIX_13> (without init value) has a constant value of 0 in block <Tone_Mixer>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MULT_A_MIX_14> (without init value) has a constant value of 0 in block <Tone_Mixer>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MULT_A_MIX_15> (without init value) has a constant value of 0 in block <Tone_Mixer>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Inst_Sine_Generator/PHASE_DIFF_2> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Inst_Sine_Generator/PHASE_DIFF_1> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Inst_Sine_Generator/PHASE_DIFF_0> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Modulator_Sine_Generator/PHASE_DIFF_7> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Modulator_Sine_Generator/PHASE_DIFF_6> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Modulator_Sine_Generator/PHASE_DIFF_5> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Modulator_Sine_Generator/PHASE_DIFF_4> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Modulator_Sine_Generator/PHASE_DIFF_3> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Modulator_Sine_Generator/PHASE_DIFF_2> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Modulator_Sine_Generator/PHASE_DIFF_1> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Modulator_Sine_Generator/PHASE_DIFF_0> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Inst_Triangle_Generator/PHASE_DIFF_7> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Inst_Triangle_Generator/PHASE_DIFF_6> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Inst_Triangle_Generator/PHASE_DIFF_5> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Inst_Triangle_Generator/PHASE_DIFF_4> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Inst_Triangle_Generator/PHASE_DIFF_3> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Inst_Triangle_Generator/PHASE_DIFF_2> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Inst_Triangle_Generator/PHASE_DIFF_1> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Inst_Triangle_Generator/PHASE_DIFF_0> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Inst_Square_Generator/PHASE_DIFF_7> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Inst_Square_Generator/PHASE_DIFF_6> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Inst_Square_Generator/PHASE_DIFF_5> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Inst_Square_Generator/PHASE_DIFF_4> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Inst_Square_Generator/PHASE_DIFF_3> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Inst_Square_Generator/PHASE_DIFF_2> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Inst_Square_Generator/PHASE_DIFF_1> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Inst_Square_Generator/PHASE_DIFF_0> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Inst_Sawtooth_Generator/PHASE_DIFF_6> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Inst_Sawtooth_Generator/PHASE_DIFF_5> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Inst_Sawtooth_Generator/PHASE_DIFF_4> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Inst_Sawtooth_Generator/PHASE_DIFF_3> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Inst_Sawtooth_Generator/PHASE_DIFF_2> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Inst_Sawtooth_Generator/PHASE_DIFF_1> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Inst_Triangle_Generator/PHASE_DIFF_1> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Inst_Triangle_Generator/PHASE_DIFF_2> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Inst_Triangle_Generator/PHASE_DIFF_3> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Inst_Triangle_Generator/PHASE_DIFF_4> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Inst_Triangle_Generator/PHASE_DIFF_5> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Inst_Triangle_Generator/PHASE_DIFF_6> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Inst_Triangle_Generator/PHASE_DIFF_7> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <Inst_Sawtooth_Generator/PHASE_DIFF_0> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Inst_Sine_Generator/PHASE_DIFF_7> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Inst_Sine_Generator/PHASE_DIFF_6> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Inst_Sine_Generator/PHASE_DIFF_5> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Inst_Sine_Generator/PHASE_DIFF_4> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <Inst_Sine_Generator/PHASE_DIFF_3> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Inst_Sawtooth_Generator/PHASE_DIFF_1> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Inst_Sawtooth_Generator/PHASE_DIFF_2> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Inst_Sawtooth_Generator/PHASE_DIFF_3> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Inst_Sawtooth_Generator/PHASE_DIFF_4> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Inst_Sawtooth_Generator/PHASE_DIFF_5> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Inst_Sawtooth_Generator/PHASE_DIFF_6> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Inst_Square_Generator/PHASE_DIFF_0> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Inst_Square_Generator/PHASE_DIFF_1> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Inst_Square_Generator/PHASE_DIFF_2> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Inst_Square_Generator/PHASE_DIFF_3> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Inst_Square_Generator/PHASE_DIFF_4> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Inst_Square_Generator/PHASE_DIFF_5> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Inst_Square_Generator/PHASE_DIFF_6> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Inst_Square_Generator/PHASE_DIFF_7> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
 
 Optimizing unit <Top_Level> ...
 
 Optimizing unit <Tone_Mixer> ...
+
+Optimizing unit <Sine_Generator> ...
+WARNING:Xst:1293 - FF/Latch <Inst_Sine_Generator/PHASE_VALUE_0> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Inst_Sine_Generator/PHASE_VALUE_1> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Inst_Sine_Generator/PHASE_VALUE_2> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Inst_Sine_Generator/PHASE_VALUE_3> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Inst_Sine_Generator/PHASE_VALUE_4> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Inst_Sine_Generator/PHASE_VALUE_5> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Inst_Sine_Generator/PHASE_VALUE_6> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Inst_Sine_Generator/PHASE_VALUE_7> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Modulator_Sine_Generator/PHASE_VALUE_7> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Modulator_Sine_Generator/PHASE_VALUE_6> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Modulator_Sine_Generator/PHASE_VALUE_5> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Modulator_Sine_Generator/PHASE_VALUE_4> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Modulator_Sine_Generator/PHASE_VALUE_3> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Modulator_Sine_Generator/PHASE_VALUE_2> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Modulator_Sine_Generator/PHASE_VALUE_1> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Modulator_Sine_Generator/PHASE_VALUE_0> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Modulator_Sine_Generator/PHASE_DIFF_0> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Modulator_Sine_Generator/PHASE_DIFF_1> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Modulator_Sine_Generator/PHASE_DIFF_2> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Modulator_Sine_Generator/PHASE_DIFF_3> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Modulator_Sine_Generator/PHASE_DIFF_4> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Modulator_Sine_Generator/PHASE_DIFF_5> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Modulator_Sine_Generator/PHASE_DIFF_6> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Modulator_Sine_Generator/PHASE_DIFF_7> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Inst_Sine_Generator/PHASE_DIFF_0> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Inst_Sine_Generator/PHASE_DIFF_1> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Inst_Sine_Generator/PHASE_DIFF_2> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Inst_Sine_Generator/PHASE_DIFF_3> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Inst_Sine_Generator/PHASE_DIFF_4> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Inst_Sine_Generator/PHASE_DIFF_5> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Inst_Sine_Generator/PHASE_DIFF_6> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Inst_Sine_Generator/PHASE_DIFF_7> has a constant value of 0 in block <Top_Level>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:2677 - Node <Inst_Square_Generator/OUTPUT_1> of sequential type is unconnected in block <Top_Level>.
 WARNING:Xst:2677 - Node <Inst_Square_Generator/OUTPUT_0> of sequential type is unconnected in block <Top_Level>.
+WARNING:Xst:2677 - Node <Inst_Sawtooth_Generator/PHASE_DIFF_7> of sequential type is unconnected in block <Top_Level>.
+WARNING:Xst:2677 - Node <Inst_Sawtooth_Generator/PHASE_VALUE_7> of sequential type is unconnected in block <Top_Level>.
 WARNING:Xst:2677 - Node <Inst_Triangle_Generator/Inst_Triangle_Ram/Mrom__varindex0000> of sequential type is unconnected in block <Top_Level>.
 WARNING:Xst:2677 - Node <Inst_Square_Generator/COUNT_0> of sequential type is unconnected in block <Top_Level>.
 WARNING:Xst:2677 - Node <Inst_Square_Generator/COUNT_1> of sequential type is unconnected in block <Top_Level>.
@@ -638,6 +724,14 @@ WARNING:Xst:2677 - Node <Inst_Square_Generator/COUNT_4> of sequential type is un
 WARNING:Xst:2677 - Node <Inst_Square_Generator/COUNT_5> of sequential type is unconnected in block <Top_Level>.
 WARNING:Xst:2677 - Node <Inst_Square_Generator/COUNT_6> of sequential type is unconnected in block <Top_Level>.
 WARNING:Xst:2677 - Node <Inst_Square_Generator/COUNT_7> of sequential type is unconnected in block <Top_Level>.
+WARNING:Xst:2677 - Node <Inst_Sawtooth_Generator/COUNTER_0> of sequential type is unconnected in block <Top_Level>.
+WARNING:Xst:2677 - Node <Inst_Sawtooth_Generator/COUNTER_1> of sequential type is unconnected in block <Top_Level>.
+WARNING:Xst:2677 - Node <Inst_Sawtooth_Generator/COUNTER_2> of sequential type is unconnected in block <Top_Level>.
+WARNING:Xst:2677 - Node <Inst_Sawtooth_Generator/COUNTER_3> of sequential type is unconnected in block <Top_Level>.
+WARNING:Xst:2677 - Node <Inst_Sawtooth_Generator/COUNTER_4> of sequential type is unconnected in block <Top_Level>.
+WARNING:Xst:2677 - Node <Inst_Sawtooth_Generator/COUNTER_5> of sequential type is unconnected in block <Top_Level>.
+WARNING:Xst:2677 - Node <Inst_Sawtooth_Generator/COUNTER_6> of sequential type is unconnected in block <Top_Level>.
+WARNING:Xst:2677 - Node <Inst_Sawtooth_Generator/COUNTER_7> of sequential type is unconnected in block <Top_Level>.
 WARNING:Xst:2677 - Node <Inst_Triangle_Generator/POSITION_COUNTER_0> of sequential type is unconnected in block <Top_Level>.
 WARNING:Xst:2677 - Node <Inst_Triangle_Generator/POSITION_COUNTER_1> of sequential type is unconnected in block <Top_Level>.
 WARNING:Xst:2677 - Node <Inst_Triangle_Generator/POSITION_COUNTER_2> of sequential type is unconnected in block <Top_Level>.
@@ -646,18 +740,11 @@ WARNING:Xst:2677 - Node <Inst_Triangle_Generator/POSITION_COUNTER_4> of sequenti
 WARNING:Xst:2677 - Node <Inst_Triangle_Generator/POSITION_COUNTER_5> of sequential type is unconnected in block <Top_Level>.
 WARNING:Xst:2677 - Node <Inst_Triangle_Generator/POSITION_COUNTER_6> of sequential type is unconnected in block <Top_Level>.
 WARNING:Xst:2677 - Node <Inst_Triangle_Generator/POSITION_COUNTER_7> of sequential type is unconnected in block <Top_Level>.
-WARNING:Xst:2677 - Node <Inst_Tone_Mixer/OUTPUT_7> of sequential type is unconnected in block <Top_Level>.
-WARNING:Xst:2677 - Node <Inst_Tone_Mixer/OUTPUT_6> of sequential type is unconnected in block <Top_Level>.
-WARNING:Xst:2677 - Node <Inst_Tone_Mixer/OUTPUT_5> of sequential type is unconnected in block <Top_Level>.
-WARNING:Xst:2677 - Node <Inst_Tone_Mixer/OUTPUT_4> of sequential type is unconnected in block <Top_Level>.
-WARNING:Xst:2677 - Node <Inst_Tone_Mixer/OUTPUT_3> of sequential type is unconnected in block <Top_Level>.
-WARNING:Xst:2677 - Node <Inst_Tone_Mixer/OUTPUT_2> of sequential type is unconnected in block <Top_Level>.
-WARNING:Xst:2677 - Node <Inst_Tone_Mixer/OUTPUT_1> of sequential type is unconnected in block <Top_Level>.
-WARNING:Xst:2677 - Node <Inst_Tone_Mixer/OUTPUT_0> of sequential type is unconnected in block <Top_Level>.
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block Top_Level, actual ratio is 5.
+Found area constraint ratio of 100 (+ 5) on block Top_Level, actual ratio is 10.
+FlipFlop Inst_Envelope_Generator/ENVELOPE_POSITION_FSM_FFd3 has been replicated 1 time(s)
 
 Final Macro Processing ...
 
@@ -665,8 +752,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 171
- Flip-Flops                                            : 171
+# Registers                                            : 269
+ Flip-Flops                                            : 269
 
 =========================================================================
 
@@ -695,32 +782,37 @@ Design Statistics
 # IOs                              : 9
 
 Cell Usage :
-# BELS                             : 266
+# BELS                             : 633
 #      GND                         : 2
-#      INV                         : 8
-#      LUT1                        : 35
-#      LUT2                        : 12
-#      LUT3                        : 35
-#      LUT4                        : 41
-#      LUT4_D                      : 2
-#      LUT4_L                      : 4
-#      MUXCY                       : 61
-#      MUXF5                       : 5
+#      INV                         : 24
+#      LUT1                        : 71
+#      LUT2                        : 48
+#      LUT2_D                      : 1
+#      LUT2_L                      : 1
+#      LUT3                        : 41
+#      LUT3_D                      : 4
+#      LUT3_L                      : 2
+#      LUT4                        : 139
+#      LUT4_D                      : 12
+#      LUT4_L                      : 24
+#      MUXCY                       : 127
+#      MUXF5                       : 24
 #      VCC                         : 2
-#      XORCY                       : 59
-# FlipFlops/Latches                : 187
+#      XORCY                       : 111
+# FlipFlops/Latches                : 285
 #      FD                          : 44
 #      FDCE                        : 16
-#      FDE                         : 95
-#      FDRE                        : 16
-#      FDS                         : 13
-#      FDSE                        : 3
-# RAMS                             : 1
-#      RAMB16_S9_S9                : 1
+#      FDE                         : 151
+#      FDRE                        : 58
+#      FDS                         : 15
+#      FDSE                        : 1
+# RAMS                             : 2
+#      RAMB16_S9                   : 2
 # Clock Buffers                    : 2
 #      BUFG                        : 2
-# IO Buffers                       : 1
+# IO Buffers                       : 9
 #      IBUFG                       : 1
+#      OBUF                        : 8
 # DCMs                             : 1
 #      DCM_SP                      : 1
 # MULTs                            : 1
@@ -732,12 +824,12 @@ Device utilization summary:
 
 Selected Device : 3s250evq100-5 
 
- Number of Slices:                      129  out of   2448     5%  
- Number of Slice Flip Flops:            187  out of   4896     3%  
- Number of 4 input LUTs:                137  out of   4896     2%  
+ Number of Slices:                      246  out of   2448    10%  
+ Number of Slice Flip Flops:            285  out of   4896     5%  
+ Number of 4 input LUTs:                367  out of   4896     7%  
  Number of IOs:                           9
- Number of bonded IOBs:                   1  out of     66     1%  
- Number of BRAMs:                         1  out of     12     8%  
+ Number of bonded IOBs:                   9  out of     66    13%  
+ Number of BRAMs:                         2  out of     12    16%  
  Number of MULT18X18SIOs:                 1  out of     12     8%  
  Number of GCLKs:                         2  out of     24     8%  
  Number of DCMs:                          1  out of      4    25%  
@@ -760,27 +852,27 @@ NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
 
 Clock Information:
 ------------------
------------------------------------+--------------------------------+-------+
-Clock Signal                       | Clock buffer(FF name)          | Load  |
------------------------------------+--------------------------------+-------+
-clk                                | Inst_dcm_42Mhz/DCM_SP_INST:CLK0| 189   |
------------------------------------+--------------------------------+-------+
+-----------------------------------+---------------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)           | Load  |
+-----------------------------------+---------------------------------+-------+
+clk                                | Inst_dcm_42Mhz/DCM_SP_INST:CLKFX| 288   |
+-----------------------------------+---------------------------------+-------+
 
 Asynchronous Control Signals Information:
 ----------------------------------------
----------------------------------------------+---------------------------------------------+-------+
-Control Signal                               | Buffer(FF name)                             | Load  |
----------------------------------------------+---------------------------------------------+-------+
-Inst_Sine_Generator/PHASE_VALUE<0>(XST_GND:G)| NONE(Inst_Sine_Generator/POSITION_COUNTER_0)| 16    |
----------------------------------------------+---------------------------------------------+-------+
+-----------------------------------+---------------------------------------------+-------+
+Control Signal                     | Buffer(FF name)                             | Load  |
+-----------------------------------+---------------------------------------------+-------+
+N0(XST_GND:G)                      | NONE(Inst_Sine_Generator/POSITION_COUNTER_0)| 16    |
+-----------------------------------+---------------------------------------------+-------+
 
 Timing Summary:
 ---------------
 Speed Grade: -5
 
-   Minimum period: 6.482ns (Maximum Frequency: 154.263MHz)
+   Minimum period: 8.508ns (Maximum Frequency: 117.533MHz)
    Minimum input arrival time before clock: No path found
-   Maximum output required time after clock: No path found
+   Maximum output required time after clock: 4.040ns
    Maximum combinational path delay: No path found
 
 Timing Detail:
@@ -789,14 +881,14 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 6.482ns (frequency: 154.263MHz)
-  Total number of paths / destination ports: 3769 / 371
+  Clock period: 8.508ns (frequency: 117.533MHz)
+  Total number of paths / destination ports: 6254 / 610
 -------------------------------------------------------------------------
 Delay:               6.482ns (Levels of Logic = 12)
   Source:            Inst_Tone_Mixer/POST_B_1 (FF)
   Destination:       Inst_Tone_Mixer/MULT_A_MIX_9 (FF)
-  Source Clock:      clk rising
-  Destination Clock: clk rising
+  Source Clock:      clk rising 1.3X
+  Destination Clock: clk rising 1.3X
 
   Data Path: Inst_Tone_Mixer/POST_B_1 to Inst_Tone_Mixer/MULT_A_MIX_9
                                 Gate     Net
@@ -821,17 +913,36 @@ Delay:               6.482ns (Levels of Logic = 12)
                                        (78.4% logic, 21.6% route)
 
 =========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 8 / 8
+-------------------------------------------------------------------------
+Offset:              4.040ns (Levels of Logic = 1)
+  Source:            Inst_Tone_Mixer/OUTPUT_7 (FF)
+  Destination:       SOUND_OUT<7> (PAD)
+  Source Clock:      clk rising 1.3X
+
+  Data Path: Inst_Tone_Mixer/OUTPUT_7 to SOUND_OUT<7>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              1   0.514   0.357  Inst_Tone_Mixer/OUTPUT_7 (Inst_Tone_Mixer/OUTPUT_7)
+     OBUF:I->O                 3.169          SOUND_OUT_7_OBUF (SOUND_OUT<7>)
+    ----------------------------------------
+    Total                      4.040ns (3.683ns logic, 0.357ns route)
+                                       (91.2% logic, 8.8% route)
+
+=========================================================================
 
 
-Total REAL time to Xst completion: 7.00 secs
-Total CPU time to Xst completion: 6.34 secs
+Total REAL time to Xst completion: 20.00 secs
+Total CPU time to Xst completion: 19.98 secs
  
 --> 
 
 
-Total memory usage is 363520 kilobytes
+Total memory usage is 374208 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  161 (   0 filtered)
-Number of infos    :   45 (   0 filtered)
+Number of warnings :  174 (   0 filtered)
+Number of infos    :   47 (   0 filtered)
 

@@ -50,7 +50,9 @@ ARCHITECTURE behavior OF Tone_Mixer_tb IS
 			LEVEL_C : IN std_logic_vector(7 downto 0);
 			LEVEL_D : IN std_logic_vector(7 downto 0);
 			MODULATOR_A : IN std_logic_vector(7 downto 0);
+			MODULATOR_A_LEVEL : IN std_logic_vector(7 downto 0);
 			MODULATOR_B : IN std_logic_vector(7 downto 0);
+			MODULATOR_B_LEVEL : IN std_logic_vector(7 downto 0);
          OUTPUT : OUT  std_logic_vector(7 downto 0);
          ENABLED_INPUTS : IN  std_logic_vector(3 downto 0);
          CLOCK : IN  std_logic
@@ -68,7 +70,9 @@ ARCHITECTURE behavior OF Tone_Mixer_tb IS
 	signal LEVEL_C : std_logic_vector(7 downto 0) := (others => '0');
 	signal LEVEL_D : std_logic_vector(7 downto 0) := (others => '0');
 	signal MODULATOR_A : std_logic_vector(7 downto 0) := (others => '0');
+	signal MODULATOR_A_LEVEL : std_logic_vector(7 downto 0) := (others => '0');
 	signal MODULATOR_B : std_logic_vector(7 downto 0) := (others => '0');
+	signal MODULATOR_A_LEVEL : std_logic_vector(7 downto 0) := (others => '0');
    signal ENABLED_INPUTS : std_logic_vector(3 downto 0) := (others => '0');
    signal CLOCK : std_logic := '0';
  	--Outputs
@@ -89,7 +93,9 @@ BEGIN
 			 LEVEL_C => LEVEL_C,
 			 LEVEL_D => LEVEL_D,
 			 MODULATOR_A => x"FF",
+			 MODULATOR_A_LEVEL => x"FF",
 			 MODULATOR_B => x"FF",
+			 MODULATOR_B_LEVEL => x"FF",
           OUTPUT => OUTPUT,
           ENABLED_INPUTS => ENABLED_INPUTS,
           CLOCK => CLOCK

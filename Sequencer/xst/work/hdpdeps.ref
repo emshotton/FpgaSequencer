@@ -1,87 +1,94 @@
-V3 58
+V3 61
 FL /home/matt/Documents/FPGA/Sequencer/Sine_Generator.vhd 2011/05/19.10:59:02 O.40d
-FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Clock_Divider.vhd 2011/05/26.11:38:08 O.40d
-EN work/Clock_Divider 1306417540 \
+FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Clock_Divider.vhd 2011/05/25.19:12:31 O.40d
+EN work/Clock_Divider 1306446822 \
       FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Clock_Divider.vhd \
       PB ieee/std_logic_1164 1296775758 PB ieee/NUMERIC_STD 1296775759
-AR work/Clock_Divider/Behavioral 1306417541 \
+AR work/Clock_Divider/Behavioral 1306446823 \
       FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Clock_Divider.vhd \
-      EN work/Clock_Divider 1306417540
-FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/dcm_42Mhz.vhd 2011/05/26.14:44:15 O.40d
-EN work/dcm_42Mhz 1306417536 \
+      EN work/Clock_Divider 1306446822
+FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/dcm_42Mhz.vhd 2011/05/26.18:47:10 O.40d
+EN work/dcm_42Mhz 1306446826 \
       FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/dcm_42Mhz.vhd \
       PB ieee/std_logic_1164 1296775758 PB ieee/NUMERIC_STD 1296775759 LB UNISIM \
       PH unisim/VCOMPONENTS 1296775759
-AR work/dcm_42Mhz/BEHAVIORAL 1306417537 \
+AR work/dcm_42Mhz/BEHAVIORAL 1306446827 \
       FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/dcm_42Mhz.vhd \
-      EN work/dcm_42Mhz 1306417536 CP BUFG CP IBUFG CP DCM_SP
-FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/ipcore_dir/multiplier.vhd 2011/05/25.14:11:27 O.40d
-EN work/multiplier 1306417534 \
+      EN work/dcm_42Mhz 1306446826 CP BUFG CP IBUFG CP DCM_SP
+FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Envelope_Generator.vhd 2011/05/26.19:52:09 O.40d
+EN work/Envelope_Generator 1306446830 \
+      FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Envelope_Generator.vhd \
+      PB ieee/std_logic_1164 1296775758 PB ieee/NUMERIC_STD 1296775759
+AR work/Envelope_Generator/Behavioral 1306446831 \
+      FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Envelope_Generator.vhd \
+      EN work/Envelope_Generator 1306446830 CP Clock_Divider
+FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/ipcore_dir/multiplier.vhd 2011/05/25.18:05:47 O.40d
+EN work/multiplier 1306446824 \
       FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/ipcore_dir/multiplier.vhd \
       PB ieee/std_logic_1164 1296775758
-AR work/multiplier/multiplier_a 1306417535 \
+AR work/multiplier/multiplier_a 1306446825 \
       FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/ipcore_dir/multiplier.vhd \
-      EN work/multiplier 1306417534
-FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Sawtooth_Generator.vhd 2011/05/25.15:40:24 O.40d
-EN work/Sawtooth_Generator 1306417546 \
+      EN work/multiplier 1306446824
+FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Sawtooth_Generator.vhd 2011/05/25.18:05:47 O.40d
+EN work/Sawtooth_Generator 1306446836 \
       FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Sawtooth_Generator.vhd \
       PB ieee/std_logic_1164 1296775758 PB ieee/NUMERIC_STD 1296775759
-AR work/Sawtooth_Generator/Behavioral 1306417547 \
+AR work/Sawtooth_Generator/Behavioral 1306446837 \
       FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Sawtooth_Generator.vhd \
-      EN work/Sawtooth_Generator 1306417546
-FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Sine_Generator.vhd 2011/05/25.15:50:19 O.40d
-EN work/Sine_Generator 1306417542 \
+      EN work/Sawtooth_Generator 1306446836
+FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Sine_Generator.vhd 2011/05/25.18:05:47 O.40d
+EN work/Sine_Generator 1306446832 \
       FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Sine_Generator.vhd \
       PB ieee/std_logic_1164 1296775758 PB ieee/NUMERIC_STD 1296775759
-AR work/Sine_Generator/Behavioral 1306417543 \
+AR work/Sine_Generator/Behavioral 1306446833 \
       FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Sine_Generator.vhd \
-      EN work/Sine_Generator 1306417542 CP sine_ram
-FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Sine_Ram.vhd 2011/05/24.09:56:53 O.40d
-EN work/sine_ram 1306417532 \
+      EN work/Sine_Generator 1306446832 CP sine_ram
+FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Sine_Ram.vhd 2011/05/25.18:05:40 O.40d
+EN work/sine_ram 1306446820 \
       FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Sine_Ram.vhd \
       PB ieee/std_logic_1164 1296775758 PB ieee/NUMERIC_STD 1296775759 \
       PB ieee/STD_LOGIC_UNSIGNED 1296775760
-AR work/sine_ram/Behavioral 1306417533 \
+AR work/sine_ram/Behavioral 1306446821 \
       FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Sine_Ram.vhd \
-      EN work/sine_ram 1306417532
-FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Square_Generator.vhd 2011/05/25.17:06:41 O.40d
-EN work/Square_Generator 1306417544 \
+      EN work/sine_ram 1306446820
+FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Square_Generator.vhd 2011/05/25.18:05:47 O.40d
+EN work/Square_Generator 1306446834 \
       FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Square_Generator.vhd \
       PB ieee/std_logic_1164 1296775758 PB ieee/NUMERIC_STD 1296775759
-AR work/Square_Generator/Behavioral 1306417545 \
+AR work/Square_Generator/Behavioral 1306446835 \
       FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Square_Generator.vhd \
-      EN work/Square_Generator 1306417544
-FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Tone_Mixer.vhd 2011/05/26.12:12:55 O.40d
-EN work/Tone_Mixer 1306417538 \
+      EN work/Square_Generator 1306446834
+FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Tone_Mixer.vhd 2011/05/26.22:10:18 O.40d
+EN work/Tone_Mixer 1306446828 \
       FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Tone_Mixer.vhd \
       PB ieee/std_logic_1164 1296775758 PB ieee/NUMERIC_STD 1296775759
-AR work/Tone_Mixer/Behavioral 1306417539 \
+AR work/Tone_Mixer/Behavioral 1306446829 \
       FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Tone_Mixer.vhd \
-      EN work/Tone_Mixer 1306417538 CP multiplier
-FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Top_Level.vhd 2011/05/26.14:45:22 O.40d
-EN work/Top_Level 1306417550 \
+      EN work/Tone_Mixer 1306446828 CP multiplier
+FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Top_Level.vhd 2011/05/26.22:53:28 O.40d
+EN work/Top_Level 1306446840 \
       FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Top_Level.vhd \
       PB ieee/std_logic_1164 1296775758
-AR work/Top_Level/Behavioral 1306417551 \
+AR work/Top_Level/Behavioral 1306446841 \
       FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Top_Level.vhd \
-      EN work/Top_Level 1306417550 CP dcm_42Mhz CP Tone_Mixer CP Clock_Divider \
-      CP Sine_Generator CP Square_Generator CP Sawtooth_Generator \
-      CP Triangle_Generator
-FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Triangle_Generator.vhd 2011/05/25.16:03:04 O.40d
-EN work/Triangle_Generator 1306417548 \
+      EN work/Top_Level 1306446840 CP dcm_42Mhz CP Clock_Divider CP Tone_Mixer \
+      CP Envelope_Generator CP Sine_Generator CP Square_Generator \
+      CP Sawtooth_Generator CP Triangle_Generator
+FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Triangle_Generator.vhd 2011/05/25.18:05:47 O.40d
+EN work/Triangle_Generator 1306446838 \
       FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Triangle_Generator.vhd \
       PB ieee/std_logic_1164 1296775758 PB ieee/NUMERIC_STD 1296775759
-AR work/Triangle_Generator/Behavioral 1306417549 \
+AR work/Triangle_Generator/Behavioral 1306446839 \
       FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Triangle_Generator.vhd \
-      EN work/Triangle_Generator 1306417548 CP Triangle_Ram
-FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Triangle_Ram.vhd 2011/05/24.09:56:53 O.40d
-EN work/Triangle_Ram 1306417530 \
+      EN work/Triangle_Generator 1306446838 CP Triangle_Ram
+FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Triangle_Ram.vhd 2011/05/25.18:05:40 O.40d
+EN work/Triangle_Ram 1306446818 \
       FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Triangle_Ram.vhd \
       PB ieee/std_logic_1164 1296775758 PB ieee/NUMERIC_STD 1296775759 \
       PB ieee/STD_LOGIC_UNSIGNED 1296775760
-AR work/Triangle_Ram/Behavioral 1306417531 \
+AR work/Triangle_Ram/Behavioral 1306446819 \
       FL /home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Triangle_Ram.vhd \
-      EN work/Triangle_Ram 1306417530
+      EN work/Triangle_Ram 1306446818
 FL /home/matt/Programming/VHDL/sequencer/Sequencer/Clock_Divider.vhd 2011/05/23.20:45:26 O.40d
 FL /home/matt/Programming/VHDL/sequencer/Sequencer/Sawtooth_Generator.vhd 2011/05/20.15:03:06 O.40d
 FL /home/matt/Programming/VHDL/sequencer/Sequencer/Sine_Generator.vhd 2011/05/20.14:22:18 O.40d

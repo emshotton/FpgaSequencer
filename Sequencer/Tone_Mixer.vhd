@@ -39,7 +39,9 @@ entity Tone_Mixer is
 			  LEVEL_C : in std_logic_vector(7 downto 0);
 			  LEVEL_D : in std_logic_vector(7 downto 0);
 			  MODULATOR_A : in std_logic_vector(7 downto 0);
+			  MODULATOR_A_LEVEL : in std_logic_vector(7 downto 0);
 			  MODULATOR_B : in std_logic_vector(7 downto 0);
+			  MODULATOR_B_LEVEL : in std_logic_vector(7 downto 0);
            OUTPUT : out  STD_LOGIC_VECTOR (7 downto 0);
            ENABLED_INPUTS : in  STD_LOGIC_VECTOR (3 downto 0);
            CLOCK : in  STD_LOGIC
@@ -80,10 +82,12 @@ signal PRE_OUT	 : STD_LOGIC_VECTOR (7 downto 0);
 signal MOD_A_A : STD_LOGIC_VECTOR (7 downto 0);
 signal MOD_A_B : STD_LOGIC_VECTOR (7 downto 0);
 signal MOD_A_OUT : STD_LOGIC_VECTOR (7 downto 0);
+signal MOD_A_LEVEL : STD_LOGIC_VECTOR (7 downto 0);
 --Modulator B signals
 signal MOD_B_A : STD_LOGIC_VECTOR (7 downto 0);
 signal MOD_B_B : STD_LOGIC_VECTOR (7 downto 0);
 signal MOD_B_OUT : STD_LOGIC_VECTOR (7 downto 0);
+signal MOD_B_LEVEL : STD_LOGIC_VECTOR (7 downto 0);
 
 COMPONENT multiplier
   PORT (
@@ -140,7 +144,9 @@ your_instance_name : multiplier
 					end if;
 					--the modulator value
 					MOD_A_A <= MODULATOR_A;
+					MOD_A_LEVEL <= std_logic_vector(255 - unsigned(MODULATOR_A_LEVEL));
 					MOD_B_A <= MODULATOR_B;
+					MOD_B_LEVEL <= std_logic_vector(255 - unsigned(MODULATOR_A_LEVEL));
 				when "00001" =>	--Begin signal A multiplication
 					MULT_A(7 downto 0) <= PRE_A;
 					MULT_A(15 downto 8) <= x"00";
@@ -160,9 +166,15 @@ your_instance_name : multiplier
 				when "00101" => 
 					POST_A(7 downto 0) <= MULT_OUT(15 downto 8);
 					POST_A(15 downto 8) <= x"00";
+					MULT_A(7 downto 0)<=MODULATOR_A;--MOD LEVEL A in
+					MULT_A(15 downto 8)<= x"00";
+					MULT_B<=MOD_A_LEVEL;
 				when "00110"=> --Finish signal C multiplication
 					POST_B(7 downto 0) <= MULT_OUT(15 downto 8);
 					POST_B(15 downto 8) <= x"00";
+					MULT_A(7 downto 0)<=MODULATOR_B; --MOD LEVEL B in
+					MULT_A(15 downto 8)<= x"00";
+					MULT_B<=MOD_B_LEVEL;
 				when "00111"=> --Finish signal D multiplication
 					POST_C(7 downto 0) <= MULT_OUT(15 downto 8);
 					POST_C(15 downto 8) <= x"00";
@@ -171,20 +183,20 @@ your_instance_name : multiplier
 					POST_D(15 downto 8) <= x"00";
 				when "01001"=>
 					MULT_A_MIX <= std_logic_vector(unsigned(POST_A)+unsigned(POST_B)+unsigned(POST_C)+unsigned(POST_D));
-					--MULT_A_MIX <= (others =>'0');
+					--MOD_A_A <=MULT_OUT(15 downto 8); --MOD LEVEL A out
 				when "01010"=>
-					--OUT_B<=MULT_A_MIX;
+					--MOD_B_A <=MULT_OUT(15 downto 8);--MOD LEVEL B out
 					MULT_A <= MULT_A_MIX;
 					MULT_B <= MULT_B_MIX;
 				when "01011"=>
 				when "01100"=>
 				when "01101"=>
 				when "01110"=>
-				MOD_A_B <= MULT_OUT(15 downto 8);
+					MOD_A_B <= MULT_OUT(15 downto 8);
 				when "01111"=>
-				MULT_A(7 downto 0) <= MOD_A_A;
-				MULT_A(15 downto 8) <= x"00";
-				MULT_B <= MOD_A_B;
+					MULT_A(7 downto 0) <= MOD_A_A;
+					MULT_A(15 downto 8) <= x"00";
+					MULT_B <= MOD_A_B;
 				when "10000"=>
 				when "10001"=>
 				when "10010"=>

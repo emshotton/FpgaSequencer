@@ -1,18 +1,17 @@
 //! **************************************************************************
-// Written by: Map O.40d on Wed May 25 19:18:16 2011
+// Written by: Map O.40d on Thu May 26 22:54:08 2011
 //! **************************************************************************
 
 SCHEMATIC START;
+COMP "clk" LOCATE = SITE "P89" LEVEL 1;
 COMP "SOUND_OUT<0>" LOCATE = SITE "P18" LEVEL 1;
 COMP "SOUND_OUT<1>" LOCATE = SITE "P23" LEVEL 1;
 COMP "SOUND_OUT<2>" LOCATE = SITE "P26" LEVEL 1;
 COMP "SOUND_OUT<3>" LOCATE = SITE "P33" LEVEL 1;
 COMP "SOUND_OUT<4>" LOCATE = SITE "P35" LEVEL 1;
-COMP "clk" LOCATE = SITE "P89" LEVEL 1;
 COMP "SOUND_OUT<5>" LOCATE = SITE "P40" LEVEL 1;
 COMP "SOUND_OUT<6>" LOCATE = SITE "P53" LEVEL 1;
 COMP "SOUND_OUT<7>" LOCATE = SITE "P57" LEVEL 1;
-NET "clk_BUFGP/IBUFG" BEL "clk_BUFGP/BUFG.GCLKMUX" USELOCALCONNECT;
-NET "clk_BUFGP/IBUFG" PERIOD = 31.25 ns HIGH 50%;
+NET "Inst_dcm_42Mhz/CLKIN_IBUFG" PERIOD = 31.25 ns HIGH 50%;
 SCHEMATIC END;
 

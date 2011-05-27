@@ -59,7 +59,9 @@ architecture Behavioral of Top_Level is
 		LEVEL_C : IN std_logic_vector(7 downto 0);
 		LEVEL_D : IN std_logic_vector(7 downto 0);
 		MODULATOR_A : IN std_logic_vector(7 downto 0);
+		MODULATOR_A_LEVEL : IN std_logic_vector(7 downto 0);
 		MODULATOR_B : IN std_logic_vector(7 downto 0);
+		MODULATOR_B_LEVEL : IN std_logic_vector(7 downto 0);
 		ENABLED_INPUTS : IN std_logic_vector(3 downto 0);
 		CLOCK : IN std_logic;          
 		OUTPUT : OUT std_logic_vector(7 downto 0)
@@ -119,16 +121,31 @@ architecture Behavioral of Top_Level is
 		);
 	END COMPONENT;
 
+COMPONENT Envelope_Generator
+	PORT(
+		CLOCK : IN std_logic;
+		ATTACK : IN std_logic_vector(7 downto 0);
+		DECAY : IN std_logic_vector(7 downto 0);
+		SUSTAIN : IN std_logic_vector(7 downto 0);
+		RELEASE : IN std_logic_vector(7 downto 0);
+		CLOCK_ENABLE : IN std_logic;          
+		OUTPUT : OUT std_logic_vector(7 downto 0)
+		);
+	END COMPONENT;
+
+
 
 	signal SOUND : std_logic_vector(7 downto 0);
 	signal CLOCK_ENABLE : std_logic;
-	signal MODULATOR_ENABLE : std_logic;
+	signal MODULATOR_ENABLE1 : std_logic;
+	signal MODULATOR_ENABLE2 : std_logic;
 	
 	signal SINE : std_logic_vector(7 downto 0);
 	signal SQUARE : std_logic_vector(7 downto 0);
 	signal SAW : std_logic_vector(7 downto 0);
 	signal TRIANGLE : std_logic_vector(7 downto 0);
 	signal MODULATOR : std_logic_vector(7 downto 0);
+	signal ADSR : std_logic_vector(7 downto 0);
 	signal clk_42Mhz : std_logic;
 	
 begin
@@ -139,6 +156,13 @@ begin
 		CLKFX_OUT => clk_42Mhz
 	);
 
+	Inst_Clock_Divider: Clock_Divider PORT MAP(
+		CLOCK => clk_42Mhz,
+		CLOCK_ENABLE => '1',
+		DIVISOR => x"42",
+		OUTPUT => CLOCK_ENABLE
+	);
+	
 	Inst_Tone_Mixer: Tone_Mixer PORT MAP(
 		IN_A => SINE,
 		IN_B => SAW,
@@ -148,35 +172,47 @@ begin
 		LEVEL_B => x"60",
 		LEVEL_C => x"FF",
 		LEVEL_D => x"FF",
-		MODULATOR_A => x"FF",--MODULATOR,
-		MODULATOR_B => x"FF",
+		MODULATOR_A => MODULATOR,
+		MODULATOR_A_LEVEL => x"00",
+		MODULATOR_B => ADSR,
+		MODULATOR_B_LEVEL => x"80",
 		OUTPUT => SOUND_OUT,
-		ENABLED_INPUTS => "0011",
+		ENABLED_INPUTS => "0001",
 		CLOCK => clk_42Mhz
 	);
 
-	Inst_Clock_Divider: Clock_Divider PORT MAP(
-		CLOCK => clk_42Mhz,
-		CLOCK_ENABLE => '1',
-		DIVISOR => x"42",
-		OUTPUT => CLOCK_ENABLE
-	);
+
 	
+	Inst_Envelope_Generator: Envelope_Generator PORT MAP(
+		CLOCK => clk_42Mhz,
+		ATTACK => x"40",
+		DECAY => x"FF",
+		SUSTAIN => x"40",
+		RELEASE => x"FF",
+		CLOCK_ENABLE => CLOCK_ENABLE,
+		OUTPUT => ADSR
+	);
 	Modulator_Sine_Generator: Sine_Generator PORT MAP(
 		HARMONIC => x"1",
 		PHASE => x"00",
 		CLOCK => clk_42Mhz,
-		CLOCK_ENABLE => MODULATOR_ENABLE,
+		CLOCK_ENABLE => MODULATOR_ENABLE2,
 		RESET => '0',
 		OUTPUT => MODULATOR
 	);
 	
-
-	Modulator_Clock_Divider: Clock_Divider PORT MAP(
+	Modulator_Clock_Divider1: Clock_Divider PORT MAP(
+		CLOCK => clk_42Mhz,
+		CLOCK_ENABLE => MODULATOR_ENABLE1,
+		DIVISOR => x"0F",
+		OUTPUT => MODULATOR_ENABLE2
+	);
+	
+	Modulator_Clock_Divider2: Clock_Divider PORT MAP(
 		CLOCK => clk_42Mhz,
 		CLOCK_ENABLE => CLOCK_ENABLE,
-		DIVISOR => x"F0",
-		OUTPUT => MODULATOR_ENABLE
+		DIVISOR => x"FF",
+		OUTPUT => MODULATOR_ENABLE1
 	);
 	
 	Inst_Sine_Generator: Sine_Generator PORT MAP(

@@ -22,7 +22,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx primitives in this code.
@@ -49,13 +49,14 @@ architecture Behavioral of Envelope_Generator is
 		OUTPUT : OUT std_logic
 		);
 	END COMPONENT;
-
+	
 	signal ENVELOPE_POSITION	: std_logic_vector(3 downto 0) := x"0";
 	--latches for the inputs
 	signal A : std_logic_vector(7 downto 0);
 	signal D : std_logic_vector(7 downto 0);
 	signal S : std_logic_vector(7 downto 0);
-	signal S_END : std_logic_vector(17 downto 0); --The point at which the sustain ends and release kicks in
+	signal S_END : unsigned(17 downto 0); --The point at which the sustain ends and release kicks in
+	signal S_END_SET : std_logic := '0';
 	signal R : std_logic_vector(7 downto 0);
 	
 	signal A_COUNTER : unsigned(7 downto 0);
@@ -68,8 +69,10 @@ architecture Behavioral of Envelope_Generator is
 	
 	signal COUNTER : unsigned(17 downto 0);
 	
-	
 begin
+
+
+
 
 	--NOTE: ADSR done subtly differnet to normal
 	--		  ADR defines rate of change of level 
@@ -101,11 +104,19 @@ begin
 
 process(CLOCK)
 begin
-	if (CLOCK'event and CLOCK ='1' and CLOCK_ENABLE) then
+
+	if (CLOCK'event and CLOCK ='1' and CLOCK_ENABLE = '1') then
 	
 		COUNTER <= COUNTER +1;
 		
-		--if (ENVELOPE_POSITION = (x"0" or x("1") or x("2")))
+		if ((ENVELOPE_POSITION = x"1") or (ENVELOPE_POSITION = x"1") or (ENVELOPE_POSITION = x"2")) then
+			if ( (R_CLOCK = '1') and (R_COUNTER < unsigned(S)) ) then
+				R_COUNTER <= R_COUNTER +1;
+			elsif ((R_COUNTER = unsigned(S)) and (S_END_SET = '0')) then
+				S_END <= 196608 - COUNTER;
+				S_END_SET <= '1';
+			end if;
+		end if;
 		--	if (A_CLOCK => '1') then
 		
 		--TO calculate the release time count how long it takes 
@@ -128,29 +139,45 @@ begin
 				R_COUNTER <= x"00";
 				
 				S_END <= "000000000000000000";
+				S_END_SET<='0';
+				
+				COUNTER <= "000000000000000000";
 				
 				ENVELOPE_POSITION <= x"1";
 			when x"1" =>
-				OUTPUT <= A_COUNTER;
-				if (A_CLOCK => '1') then
+				OUTPUT <= std_logic_vector(A_COUNTER);
+				if (A_CLOCK = '1') then
 					A_COUNTER<= A_COUNTER +1;
 					if (A_COUNTER = x"FF") then
 						ENVELOPE_POSITION <= x"2";
-						A_COUNTER <= "00";
+						A_COUNTER <= x"00";
 					end if;
 				end if;
 			when x"2" =>
-				OUTPUT <= D_COUNTER;
-				if (D_CLOCK => '1') then
+				OUTPUT <= std_logic_vector(D_COUNTER);
+				if (D_CLOCK = '1') then
 					D_COUNTER<= D_COUNTER -1;
-					if (D_COUNTER < SUSTAIN) then
+					if (D_COUNTER < unsigned(S)) then
 						ENVELOPE_POSITION <= x"3";
-						D_COUNTER <= "FF";
+						D_COUNTER <= x"FF";
 					end if;
 				end if;
 			when x"3"=>
-				OUTPUT <= SUSTAIN;
+				if (COUNTER < S_END)then
+					OUTPUT <= S;
+				else
+					ENVELOPE_POSITION <= x"4";
+				end if;
 			when x"4"=>
+				OUTPUT <= std_logic_vector(R_COUNTER);
+				if (R_CLOCK = '1') then
+					R_COUNTER<= R_COUNTER -1;
+					if (R_COUNTER = 0) then
+						ENVELOPE_POSITION <= x"0";
+					end if;
+				end if;
+			when others=>
+			--OH GOD, if things get to this point you're pretty much screwed
 		end case;
 	end if;
 end process;

@@ -1,8 +1,11 @@
 Release 13.1 Drc O.40d (lin64)
 Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
 
-Wed May 25 19:18:39 2011
+Thu May 26 22:54:34 2011
 
 drc -z Top_Level.ncd Top_Level.pcf
 
+INFO:PhysDesignRules:772 - To achieve optimal frequency synthesis performance
+   with the CLKFX and CLKFX180 outputs of the DCM comp
+   Inst_dcm_42Mhz/DCM_SP_INST, consult the device Interactive Data Sheet.
 DRC detected 0 errors and 0 warnings.
