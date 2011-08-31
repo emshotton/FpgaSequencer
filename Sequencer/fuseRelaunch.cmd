@@ -1,1 +1,0 @@
--intstyle "ise" -incremental -o "/home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Top_Level_isim_beh.exe" -prj "/home/matt/Programming/VHDL/FpgaSequencer/Sequencer/Top_Level_beh.prj" "work.Top_Level" 

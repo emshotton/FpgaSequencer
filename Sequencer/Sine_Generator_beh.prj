@@ -1,3 +1,0 @@
-vhdl work "Sine_Ram.vhd"
-vhdl work "Sine_Generator.vhd"
-vhdl work "Sine_Generator_tb.vhd"

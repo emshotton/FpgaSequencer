@@ -1,1 +1,0 @@
-vhdtdtfi -prj Sequencer -o /home/matt/Dropbox/Code/xilinx/sequencer/Sequencer/Triangle_Ram.vhi -module Triangle_Ram -template /opt/Xilinx/13.1/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work Triangle_Ram.vhd 

@@ -1,3 +1,0 @@
-vhdl isim_temp "Triangle_Ram.vhd"
-vhdl isim_temp "Triangle_Generator.vhd"
-vhdl isim_temp "Triangle_Generato_tb.vhd"

@@ -1,2 +1,0 @@
-# Output products list for <dcm_42Mhz>
-dcm_42Mhz_flist.txt
