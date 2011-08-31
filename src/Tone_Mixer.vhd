@@ -57,6 +57,11 @@ signal NUM_SIGNALS : STD_LOGIC_VECTOR(2 downto 0);
 signal MULT_A   : STD_LOGIC_VECTOR (15 downto 0);
 signal MULT_B   : STD_LOGIC_VECTOR (7 downto 0);
 signal MULT_OUT : STD_LOGIC_VECTOR (15 downto 0);
+--wierd sort of wrapper for multiplier
+signal MULT_RAW_A : STD_LOGIC_VECTOR (17 downto 0);
+signal MULT_RAW_B : STD_LOGIC_VECTOR (17 downto 0);
+signal MULT_RAW_OUT : STD_LOGIC_VECTOR (35 downto 0);
+
 
 signal MULT_A_MIX : STD_LOGIC_VECTOR (15 downto 0);
 signal MULT_B_MIX : STD_LOGIC_VECTOR (7 downto 0);
@@ -89,26 +94,54 @@ signal MOD_B_B : STD_LOGIC_VECTOR (7 downto 0);
 signal MOD_B_OUT : STD_LOGIC_VECTOR (7 downto 0);
 signal MOD_B_LEVEL : STD_LOGIC_VECTOR (7 downto 0);
 
-COMPONENT multiplier
-  PORT (
-    clk : IN STD_LOGIC;
-    a : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-    b : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-    p : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
-  );
-END COMPONENT;
+--COMPONENT multiplier
+--  PORT (
+--    CLOCK : IN STD_LOGIC;
+--    a : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+--    b : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+--    p : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+--  );
+--END COMPONENT;
+
+	COMPONENT multiplier
+	PORT(
+		CLOCK : IN std_logic;
+		A : IN std_logic_vector(17 downto 0);
+		B : IN std_logic_vector(17 downto 0);
+		CLOCK_ENABLE : IN std_logic;
+		RESET : IN std_logic;          
+		OUTPUT : OUT std_logic_vector(35 downto 0)
+		);
+	END COMPONENT;
+
 
 begin
 
-your_instance_name : multiplier
-  PORT MAP (
-    clk => CLOCK,
-    a => MULT_A,
-    b => MULT_B,
-    p => MULT_OUT
-  );
+--your_instance_name : multiplier
+--  PORT MAP (
+--    clk => CLOCK,
+--    a => MULT_A,
+--    b => MULT_B,
+--    p => MULT_OUT
+--  );
   
+  MULT_RAW_A(17 downto 16) <= "00";
+  MULT_RAW_A(15 downto 0) <= MULT_A;
+  MULT_RAW_B(17 downto 8) <= "0000000000";
+  MULT_RAW_B(7 downto 0) <= MULT_B;
+  MULT_OUT <= MULT_RAW_OUT(15 downto 0);
   
+  Inst_multiplier: multiplier PORT MAP(
+		CLOCK => CLOCK,
+		A => MULT_RAW_A,
+		B => MULT_RAW_B,
+		CLOCK_ENABLE => '1',
+		RESET => '0',
+		OUTPUT => MULT_RAW_OUT
+	);
+	
+	
+	
 --	OUT_A <= POST_A;--MULT_B_MIX;
 	--OUT_B(7 downto 0) <= POST_B;--MULT_A_MIX;
 --	OUT_C <= POST_C;

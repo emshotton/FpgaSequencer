@@ -177,7 +177,7 @@ begin
 		MODULATOR_B => ADSR,
 		MODULATOR_B_LEVEL => x"FF",
 		OUTPUT => SOUND_OUT,
-		ENABLED_INPUTS => "0001",
+		ENABLED_INPUTS => "1111",
 		CLOCK => clk_42Mhz
 	);
 
