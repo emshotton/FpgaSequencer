@@ -6,16 +6,14 @@ def to_hex(val):
     pass
 
 
-
-
 if __name__ == "__main__":
     print ("main!")
-    num_samples = 256
+    num_samples = 1024
+    num_bits = 16 
     result = ""
     for i in range(num_samples):
         k = float(i)/float(num_samples)*360
         val = math.sin(math.radians(k))
-        num_bits = 8 
         #normalise to bit size
         val = val*((math.pow(2,num_bits)-1)/2)
         val = int(val + ((math.pow(2,num_bits)-1)/2))
