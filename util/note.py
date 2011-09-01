@@ -118,7 +118,7 @@ address_jump = {8:8,7:4,6:2,5:1,4:1,3:1,2:1,1:1,0:1}
 
 def calc_running_freq(notes,address_sizes):
     running_freq = []
-    for i in range(len(notes)-1):
+    for i in range(len(notes)):
         running_freq.append(notes[i][1]*   address_sizes[i]   )
     return running_freq
 
@@ -147,17 +147,18 @@ def calc_synth_error(notes,clock_freq, synth_freq):
 def calc_avg_synth_error(notes,clock_freq , synth_freq):
     error = float(0)
     #synth_freq = calc_synthesised_freq(notes, clock_freq,divisors)
-    for i in range(len(notes)-1):
+    for i in range(len(notes)):
         error += math.fabs(notes[i][1]-synth_freq[i])
         
     error = error / len(notes)
     return error
     
 
-address_sizes=[]
+address_sizes = []
 
-for i in range(len(notes)-1):
-    divisor = address_jump[ int(notes[i][0][len(notes[i][0])-1] ) ] 
+
+for i in notes:
+    divisor = address_jump[ int(i[0][len(i[0])-1] ) ] 
     add = address_range/divisor
     address_sizes.append(add)
 
@@ -169,11 +170,15 @@ running_frequencys = calc_running_freq(notes,address_sizes)
 divisors = calc_clock_divisor(notes,frequency,running_frequencys)
 synth_frequencys = calc_synthesised_freq(notes,frequency,divisors,address_sizes)
 
+
+
+print len(notes)
+print len(address_sizes)
 print len(divisors)
 print len(running_frequencys)
 print len(synth_frequencys)
-print len(notes)
-print len(address_sizes)
+
+
 print "Frequency: "+str(frequency)
 
 print "Error: "+str(calc_avg_synth_error(notes,frequency, synth_frequencys))
