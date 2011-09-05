@@ -164,7 +164,7 @@ for i in notes:
 
 
 
-frequency = 84000000#42000000
+frequency = 42000000
 
 running_frequencys = calc_running_freq(notes,address_sizes)
 divisors = calc_clock_divisor(notes,frequency,running_frequencys)
