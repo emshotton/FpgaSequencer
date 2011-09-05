@@ -7,10 +7,11 @@ def to_hex(val):
 
 
 if __name__ == "__main__":
-    print ("main!")
     num_samples = 1024
     num_bits = 16 
     result = ""
+    print "memory_initialization_radix=16;"
+    print "memory_initialization_vector="
     for i in range(num_samples):
         k = float(i)/float(num_samples)*360
         val = math.sin(math.radians(k))
@@ -21,9 +22,15 @@ if __name__ == "__main__":
         str = str[2:]
 
         if len(str) < 4:
-            for j in range(2-len(str)):
+            for j in range(4-len(str)):
                 str = '0' + str
 
-        str = "x\""+str+"\","
+        #str = "x\""+str+"\","
+	
+	if (i == 1023 ):
+            str = str + ";\n"
+	else:
+            str = str+",\n"
+    	
         result +=  str
     print result
