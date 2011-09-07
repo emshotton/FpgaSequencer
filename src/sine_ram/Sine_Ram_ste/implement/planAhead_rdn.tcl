@@ -61,7 +61,7 @@ opt_design
 place_design 
 route_design 
 write_sdf -rename_top_module Sine_Ram_top -file routed.sdf 
-write_verilog -nolib -mode sim -sdf_anno false -rename_top_module Sine_Ram_top routed.v
+write_verilog -nolib -mode sim -sdf_anno false -rename_top_module Sine_Ram_top routed.vhd
 report_timing -nworst 30 -path_type full -file routed.twr
 report_drc -file routed.drc
 #write_bitstream

@@ -52,7 +52,8 @@ begin
 process (CLOCK, RESET)
 begin
 	if (RESET = '1') then
-		
+		address_counter <= "00000000";
+		divide_counter <= "00000000000";
 	elsif(CLOCK'event and CLOCK ='1') then
 		divide_couner <= divide_counter +1;
 		if(divide_counter >= CLOCK_DIVIDE) then

@@ -36,6 +36,5 @@ trce -e 10 routed.ncd mapped.pcf -o routed
 echo 'Running design through bitgen'
 bitgen -w routed
 
-echo 'Running netgen to create gate level Verilog model'
-netgen -ofmt verilog -sim -tm Sine_Ram_top -pcf mapped.pcf -w routed.ncd routed.v
-cp routed.sdf ../../production/timing/
+echo 'Running netgen to create gate level VHDL model'
+netgen -ofmt vhdl -sim -tm Sine_Ram_top -pcf mapped.pcf -w routed.ncd routed.vhd

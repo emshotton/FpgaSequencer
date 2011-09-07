@@ -1,7 +1,7 @@
 ##############################################################
 #
 # Xilinx Core Generator version 13.2
-# Date: Wed Sep  7 19:29:21 2011
+# Date: Wed Sep  7 19:36:34 2011
 #
 ##############################################################
 #
@@ -21,7 +21,7 @@ SET addpads = false
 SET asysymbol = true
 SET busformat = BusFormatAngleBracketNotRipped
 SET createndf = false
-SET designentry = Verilog
+SET designentry = VHDL
 SET device = xc3s250e
 SET devicefamily = spartan3e
 SET flowvendor = Other
@@ -32,8 +32,8 @@ SET package = vq100
 SET removerpms = false
 SET simulationfiles = Behavioral
 SET speedgrade = -5
-SET verilogsim = true
-SET vhdlsim = false
+SET verilogsim = false
+SET vhdlsim = true
 # END Project Options
 # BEGIN Select
 SELECT Block_Memory_Generator xilinx.com:ip:blk_mem_gen:6.2
@@ -102,4 +102,4 @@ CSET write_width_b=16
 MISC pkg_timestamp=2011-03-11T08:24:14.000Z
 # END Extra information
 GENERATE
-# CRC:  88af304
+# CRC: 47d68bb9

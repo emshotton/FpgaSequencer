@@ -8,7 +8,7 @@
 <msg type="info" file="sim" num="0" delta="new" >Generating component instance &apos;<arg fmt="%s" index="1">Sine_Ram</arg>&apos; of &apos;<arg fmt="%s" index="2">xilinx.com:ip:blk_mem_gen:6.2</arg>&apos; from &apos;<arg fmt="%s" index="3">/opt/Xilinx/13.2/ISE_DS/ISE/coregen/ip/xilinx/primary/com/xilinx/ip/blk_mem_gen_v6_2/component.xml</arg>&apos;.
 </msg>
 
-<msg type="warning" file="sim" num="0" delta="new" ><arg fmt="%s" index="1">Can&apos;t find &apos;Verilog&apos; synthesis view; using general synthesis view</arg>
+<msg type="warning" file="sim" num="0" delta="new" ><arg fmt="%s" index="1">A core named &apos;Sine_Ram&apos; already exists in the project. Output products for this core may be overwritten.</arg>
 </msg>
 
 <msg type="info" file="sim" num="0" delta="new" ><arg fmt="%s" index="1">Pre-processing HDL files for &apos;Sine_Ram&apos;...</arg>
