@@ -1,0 +1,13 @@
+run
+-ifmt VHDL
+-ent Sine_Ram_top
+-p xc3s250e-vq100-5
+-ifn xst.prj
+-write_timing_constraints No
+-iobuf YES
+-max_fanout 100
+-ofn Sine_Ram_top 
+-ofmt NGC
+-bus_delimiter ()
+-hierarchy_separator /
+-case Maintain

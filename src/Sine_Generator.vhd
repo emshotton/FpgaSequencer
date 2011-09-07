@@ -39,9 +39,27 @@ entity Sine_Generator is
 end Sine_Generator;
 
 architecture Behavioral of Sine_Generator is
+--========MODULES========
 
+--========/MODULES========
+
+--========SIGNALS========
+signal address_counter : std_logic_vector(7 downto 0);
+signal divide_counter : std_logic_vector(10 downto 0);
+--========/SIGNALS========
 begin
 
-
+process (CLOCK, RESET)
+begin
+	if (RESET = '1') then
+		
+	elsif(CLOCK'event and CLOCK ='1') then
+		divide_couner <= divide_counter +1;
+		if(divide_counter >= CLOCK_DIVIDE) then
+			address_counter <= address_counter+ADDRESS_JUMP_A + ADDRESS_JUMP_B;
+			divide_counter <= "00000000000";
+		end if;
+	end if;
+end process;
 end Behavioral;
 
