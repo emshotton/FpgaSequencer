@@ -43,11 +43,11 @@ for i in notes:
     error =1000000
 
 
-    for k in range(1,17):	
+    for k in range(1,16):	
         #required_running_frequency = (address_range/address_jump[i[1]])*i[2]
         required_running_frequency = (address_range/k)*i[2]
 
-        for j in range(2046*2):
+        for j in range(2048*2-2):
             div = j+1
             freq = float(clock_frequency)/float(div)
             error = math.fabs(required_running_frequency - freq)

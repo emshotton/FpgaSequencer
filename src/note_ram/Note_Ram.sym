@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <symbol version="7" name="Note_Ram">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2011-9-8T18:36:57</timestamp>
+    <timestamp>2011-9-8T19:35:49</timestamp>
     <pin polarity="Input" x="0" y="80" name="addra[6:0]" />
     <pin polarity="Input" x="0" y="272" name="clka" />
     <pin polarity="Output" x="576" y="80" name="douta[15:0]" />
