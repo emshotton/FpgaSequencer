@@ -35,7 +35,7 @@ entity Sine_Generator is
            OUTPUT : out  STD_LOGIC_VECTOR (15 downto 0);
            ADDRESS_JUMP_A : in  STD_LOGIC_VECTOR (3 downto 0);
            ADDRESS_JUMP_B : in  STD_LOGIC_VECTOR (3 downto 0);
-           CLOCK_DIVIDE : in  STD_LOGIC_VECTOR (10 downto 0));
+           CLOCK_DIVIDE : in  STD_LOGIC_VECTOR (11 downto 0));
 end Sine_Generator;
 
 architecture Behavioral of Sine_Generator is
@@ -51,7 +51,7 @@ END COMPONENT;
 
 --========SIGNALS========
 signal address_counter : std_logic_vector(9 downto 0);
-signal divide_counter : std_logic_vector(10 downto 0);
+signal divide_counter : std_logic_vector(11 downto 0);
 --========/SIGNALS========
 begin
 
@@ -66,12 +66,12 @@ process (CLOCK, RESET)
 begin
 	if (RESET = '1') then
 		address_counter <= "0000000000";
-		divide_counter <= "00000000000";
+		divide_counter <=  "000000000000";
 	elsif(CLOCK'event and CLOCK ='1') then
 		divide_counter <= std_logic_vector(unsigned(divide_counter) +1);
 		if(divide_counter >= CLOCK_DIVIDE) then
 			address_counter <= std_logic_vector(unsigned(address_counter) + unsigned(ADDRESS_JUMP_A) + unsigned(ADDRESS_JUMP_B));
-			divide_counter <= "00000000000";
+			divide_counter <= "000000000000";
 		end if;
 	end if;
 end process;

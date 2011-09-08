@@ -1,0 +1,25 @@
+# Output products list for <Note_Ram>
+Note_Ram.asy
+Note_Ram.gise
+Note_Ram.mif
+Note_Ram.ngc
+Note_Ram.sym
+Note_Ram.vhd
+Note_Ram.vho
+Note_Ram.xco
+Note_Ram.xise
+Note_Ram_flist.txt
+Note_Ram_ste/example_design/Note_Ram_top.ucf
+Note_Ram_ste/example_design/Note_Ram_top.vhd
+Note_Ram_ste/example_design/Note_Ram_top.xdc
+Note_Ram_ste/example_design/bmg_wrapper.vhd
+Note_Ram_ste/implement/implement.sh
+Note_Ram_ste/implement/planAhead_rdn.bat
+Note_Ram_ste/implement/planAhead_rdn.sh
+Note_Ram_ste/implement/planAhead_rdn.tcl
+Note_Ram_ste/implement/xst.prj
+Note_Ram_ste/implement/xst.scr
+Note_Ram_xmdf.tcl
+blk_mem_gen_ds512.pdf
+blk_mem_gen_v6_2_readme.txt
+summary.log

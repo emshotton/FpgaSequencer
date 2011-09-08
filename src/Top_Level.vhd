@@ -47,9 +47,20 @@ architecture Behavioral of Top_Level is
 		LOCKED_OUT : OUT std_logic
 		);
 	END COMPONENT;
-
-	signal clk_42Mhz : std_logic;
 	
+	COMPONENT Sine_Generator
+	PORT(
+		CLOCK : IN std_logic;
+		RESET : IN std_logic;
+		ADDRESS_JUMP_A : IN std_logic_vector(3 downto 0);
+		ADDRESS_JUMP_B : IN std_logic_vector(3 downto 0);
+		CLOCK_DIVIDE : IN std_logic_vector(11 downto 0);          
+		OUTPUT : OUT std_logic_vector(15 downto 0)
+		);
+	END COMPONENT;
+	
+	signal clk_42Mhz : std_logic;
+	signal sound : std_logic_vector(15 downto 0);
 begin
 	
 	Inst_dcm_42Mhz: dcm_42Mhz PORT MAP(
@@ -57,7 +68,16 @@ begin
 		RST_IN => '0',
 		CLKFX_OUT => clk_42Mhz
 	);
-	SOUND_OUT<= "00000000";
+	SOUND_OUT<= sound(15 downto 8);
+	
+		Inst_Sine_Generator: Sine_Generator PORT MAP(
+		CLOCK => CLOCK,
+		RESET => '0',
+		OUTPUT => sound,
+		ADDRESS_JUMP_A => "0000",
+		ADDRESS_JUMP_B => "1100",	--12
+		CLOCK_DIVIDE => "010001100010" 			--1122
+	);
 	
 end Behavioral;
 

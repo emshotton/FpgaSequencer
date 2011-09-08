@@ -98,7 +98,7 @@ BEGIN
       wait for CLOCK_period*10;
 		ADDRESS_JUMP_A<="0001";
 		ADDRESS_JUMP_B<="0000";
-		CLOCK_DIVIDE <= "00000000001";
+		CLOCK_DIVIDE <= "00000000011";
 		
       -- insert stimulus here 
 
