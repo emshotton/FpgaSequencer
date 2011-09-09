@@ -30,54 +30,49 @@ use IEEE.NUMERIC_STD.ALL;
 --use UNISIM.VComponents.all;
 
 entity Triangle_Generator is
-    Port ( HARMONIC : in  STD_LOGIC_VECTOR (3 downto 0);
-			  PHASE : in STD_LOGIC_VECTOR (7 downto 0);
-           CLOCK : in  STD_LOGIC;
-           CLOCK_ENABLE : in  STD_LOGIC;
+    Port ( CLOCK : in  STD_LOGIC;
            RESET : in  STD_LOGIC;
-           OUTPUT : out  STD_LOGIC_VECTOR (7 downto 0));
+           OUTPUT : out  STD_LOGIC_VECTOR (15 downto 0);
+           ADDRESS_JUMP_A : in  STD_LOGIC_VECTOR (3 downto 0);
+           ADDRESS_JUMP_B : in  STD_LOGIC_VECTOR (3 downto 0);
+           CLOCK_DIVIDE : in  STD_LOGIC_VECTOR (11 downto 0));
 end Triangle_Generator;
 
 architecture Behavioral of Triangle_Generator is
 
-	COMPONENT Triangle_Ram
-	PORT(
-		CLOCK : IN std_logic;
-		READ_ADDRESS : IN std_logic_vector(7 downto 0);          
-		OUTPUT_DATA : OUT std_logic_vector(7 downto 0)
-		);
-	END COMPONENT;
-	
-	signal POSITION_COUNTER : std_logic_vector(7 downto 0) := "00000000";
-	signal PHASE_DIFF : std_logic_vector(7 downto 0):= "00000000";
-	signal PHASE_VALUE: std_logic_vector(7 downto 0):= "00000000";
+signal address_counter : std_logic_vector(9 downto 0);
+signal divide_counter : std_logic_vector(11 downto 0);
+signal up_ndown : std_logic :='1';
 	
 begin
 
-	Inst_Triangle_Ram: Triangle_Ram PORT MAP(
-		CLOCK => CLOCK,
-		READ_ADDRESS => POSITION_COUNTER,
-		OUTPUT_DATA => OUTPUT
-	);
-	
-	
-	process(CLOCK)
-	begin
-		if(CLOCK'event and CLOCK = '1' and CLOCK_ENABLE = '1') then
-			PHASE_DIFF <= std_logic_vector(unsigned(PHASE) - unsigned(PHASE_VALUE));
-			PHASE_VALUE <= PHASE;
+process (CLOCK, RESET)
+begin
+	if (RESET = '1') then
+		address_counter <= "0000000000";
+		divide_counter <=  "000000000000";
+	elsif(CLOCK'event and CLOCK ='1') then
+		divide_counter <= std_logic_vector(unsigned(divide_counter) +1);
+		if(divide_counter >= CLOCK_DIVIDE) then
+			if(address_counter >= std_logic_vector(1022 - unsigned(ADDRESS_JUMP_A)- unsigned(ADDRESS_JUMP_B))) then
+				up_ndown <= '0';
+			elsif(address_counter <= std_logic_vector(1 + unsigned(ADDRESS_JUMP_A) + unsigned(ADDRESS_JUMP_B))) then
+				up_ndown <= '1';
+			end if;
+			case up_ndown is
+				when '0' =>
+					address_counter <= std_logic_vector(unsigned(address_counter) - unsigned(ADDRESS_JUMP_A) - unsigned(ADDRESS_JUMP_B));
+				when others =>
+					address_counter <= std_logic_vector(unsigned(address_counter) + unsigned(ADDRESS_JUMP_A) + unsigned(ADDRESS_JUMP_B));
+			end case;
+
+			divide_counter <= "000000000000";
+			OUTPUT(15 downto 6) <= address_counter;
+			OUTPUT(5 downto 0) <= "000000";
 		end if;
-	end process;
-	
-	
-	process(CLOCK,RESET)
-	begin
-		if (RESET = '1') then
-			POSITION_COUNTER <= (others => '0');
-		elsif(CLOCK'event and CLOCK ='1' and CLOCK_ENABLE = '1') then
-			POSITION_COUNTER <= std_logic_vector(unsigned(POSITION_COUNTER) + unsigned(HARMONIC) + unsigned(PHASE_DIFF));
-		end if;
-	end process;
+	end if;
+end process;
+
 
 end Behavioral;
 

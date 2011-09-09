@@ -2,10 +2,10 @@
 -- Company: 
 -- Engineer:
 --
--- Create Date:   16:26:08 05/20/2011
+-- Create Date:   15:16:09 09/09/2011
 -- Design Name:   
--- Module Name:   /home/matt/Dropbox/Code/xilinx/sequencer/Sequencer/Triangle_Generato_tb.vhd
--- Project Name:  Sequencer
+-- Module Name:   /home/matt/Programming/VHDL/FpgaSequencer/src/Triangle_Generator_tb.vhd
+-- Project Name:  project
 -- Target Device:  
 -- Tool versions:  
 -- Description:   
@@ -32,48 +32,49 @@ USE ieee.std_logic_1164.ALL;
 -- arithmetic functions with Signed or Unsigned values
 --USE ieee.numeric_std.ALL;
  
-ENTITY Triangle_Generato_tb IS
-END Triangle_Generato_tb;
+ENTITY Triangle_Generator_tb IS
+END Triangle_Generator_tb;
  
-ARCHITECTURE behavior OF Triangle_Generato_tb IS 
+ARCHITECTURE behavior OF Triangle_Generator_tb IS 
  
     -- Component Declaration for the Unit Under Test (UUT)
  
     COMPONENT Triangle_Generator
     PORT(
-         HARMONIC : IN  std_logic_vector(3 downto 0);
-			PHASE : IN STD_LOGIC_VECTOR (7 downto 0);
          CLOCK : IN  std_logic;
-         CLOCK_ENABLE : IN  std_logic;
          RESET : IN  std_logic;
-         OUTPUT : OUT  std_logic_vector(7 downto 0)
+         OUTPUT : OUT  std_logic_vector(15 downto 0);
+         ADDRESS_JUMP_A : IN  std_logic_vector(3 downto 0);
+         ADDRESS_JUMP_B : IN  std_logic_vector(3 downto 0);
+         CLOCK_DIVIDE : IN  std_logic_vector(11 downto 0)
         );
     END COMPONENT;
     
 
    --Inputs
-   signal HARMONIC : std_logic_vector(3 downto 0) := (others => '0');
-	signal PHASE : STD_LOGIC_VECTOR (7 downto 0);
    signal CLOCK : std_logic := '0';
-   signal CLOCK_ENABLE : std_logic := '0';
    signal RESET : std_logic := '0';
+   signal ADDRESS_JUMP_A : std_logic_vector(3 downto 0) := (others => '0');
+   signal ADDRESS_JUMP_B : std_logic_vector(3 downto 0) := (others => '0');
+   signal CLOCK_DIVIDE : std_logic_vector(11 downto 0) := (others => '0');
 
  	--Outputs
-   signal OUTPUT : std_logic_vector(7 downto 0);
+   signal OUTPUT : std_logic_vector(15 downto 0);
 
    -- Clock period definitions
    constant CLOCK_period : time := 10 ns;
+   constant CLOCK_DIVIDE_period : time := 10 ns;
  
 BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
    uut: Triangle_Generator PORT MAP (
-          HARMONIC => HARMONIC,
-			 PHASE => PHASE,
           CLOCK => CLOCK,
-          CLOCK_ENABLE => CLOCK_ENABLE,
           RESET => RESET,
-          OUTPUT => OUTPUT
+          OUTPUT => OUTPUT,
+          ADDRESS_JUMP_A => ADDRESS_JUMP_A,
+          ADDRESS_JUMP_B => ADDRESS_JUMP_B,
+          CLOCK_DIVIDE => CLOCK_DIVIDE
         );
 
    -- Clock process definitions
@@ -90,17 +91,16 @@ BEGIN
    stim_proc: process
    begin		
       -- hold reset state for 100 ns.
-		RESET <='1';
+		RESET <= '1';
       wait for 100 ns;	
 		RESET <= '0';
 		
       wait for CLOCK_period*10;
-		
+		ADDRESS_JUMP_A <= "0001";
+		ADDRESS_JUMP_B <= "0000";
+		CLOCK_DIVIDE <= "000000000000";
       -- insert stimulus here 
-		HARMONIC <= "0010";
-		CLOCK_ENABLE <='1';
-		PHASE <= x"00";
-		
+
       wait;
    end process;
 
